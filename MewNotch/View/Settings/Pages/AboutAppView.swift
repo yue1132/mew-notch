@@ -23,11 +23,11 @@ struct AboutAppView: View {
                     .shadow(radius: 10)
                 
                 VStack(spacing: 8) {
-                    Text("MewNotch")
+                    Text("app.name".localized)
                         .font(.system(size: 32, weight: .bold, design: .rounded))
                         .foregroundStyle(MewNotch.Colors.notch.color)
                     
-                    Text("Version \(updaterViewModel.currentVersion)")
+                    Text("settings.about.versionFormat".localized(with: updaterViewModel.currentVersion))
                         .font(.system(size: 14, weight: .medium, design: .rounded))
                         .foregroundStyle(.secondary)
                         .padding(.horizontal, 12)
@@ -43,7 +43,7 @@ struct AboutAppView: View {
                 Button(action: {
                     updaterViewModel.checkForUpdates()
                 }) {
-                    Text("Check for Updates")
+                    Text("settings.about.checkForUpdates".localized)
                         .font(.system(size: 13, weight: .medium))
                         .frame(maxWidth: 160)
                 }

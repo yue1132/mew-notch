@@ -23,7 +23,7 @@ class MediaKeyManager {
     private let NX_KEYTYPE_BRIGHTNESS_DOWN: Int32 = 3
     private let NX_KEYTYPE_MUTE: Int32 = 7
     
-    private let kCGEventSystemDefined = CGEventType(rawValue: 14)!
+    private let kCGEventSystemDefined = CGEventType(rawValue: 14) ?? .keyDown
     
     private init() { }
 
@@ -79,9 +79,11 @@ class MediaKeyManager {
              return Unmanaged.passUnretained(event)
         }
         
-        if type.rawValue == 14 {
-            let subtypeField = CGEventField(rawValue: 160)!
-            let data1Field = CGEventField(rawValue: 161)!
+        if type == kCGEventSystemDefined {
+            guard let subtypeField = CGEventField(rawValue: 160),
+                  let data1Field = CGEventField(rawValue: 161) else {
+                return Unmanaged.passUnretained(event)
+            }
             
             var subtype = event.getIntegerValueField(subtypeField)
             var data1 = event.getIntegerValueField(data1Field)

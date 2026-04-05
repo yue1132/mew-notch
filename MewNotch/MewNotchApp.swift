@@ -11,21 +11,22 @@ import Sparkle
 
 @main
 struct MewNotchApp: App {
-    
+
     @NSApplicationDelegateAdaptor(MewAppDelegate.self) var mewAppDelegate
-    
+
     @Environment(\.openWindow) private var openWindow
     @Environment(\.openSettings) private var openSettings
-    
+
     @StateObject private var updaterViewModel: UpdaterViewModel = .shared
-    
+    @StateObject private var languageManager = LanguageManager.shared
+
     @ObservedObject private var appDefaults = AppDefaults.shared
-    
+
     @State private var isMenuShown: Bool = true
-    
+
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([ ])
-        
+
         let modelConfiguration = ModelConfiguration(
             schema: schema,
             isStoredInMemoryOnly: false
@@ -42,7 +43,7 @@ struct MewNotchApp: App {
             )
         }
     }()
-    
+
     init() {
         self._isMenuShown = .init(
             initialValue: self.appDefaults.showMenuIcon
@@ -53,9 +54,10 @@ struct MewNotchApp: App {
         MenuBarExtra(
             isInserted: $isMenuShown,
             content: {
-                Text("MewNotch")
-                
+                Text("app.name".localized)
+
                 NotchOptionsView()
+                    .liveLocalized()
             }
         ) {
             MewNotch.Assets.iconMenuBar
@@ -68,9 +70,10 @@ struct MewNotchApp: App {
                 isMenuShown = newVal
             }
         }
-        
+
         Settings {
             MewSettingsView()
+                .id(languageManager.currentLanguage)
                 .modelContainer(sharedModelContainer)
         }
         .windowResizability(.contentSize)

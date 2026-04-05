@@ -62,11 +62,17 @@ struct CollapsedNotchView: View {
                 .hide(
                     when: notchViewModel.isExpanded
                 )
-                
+
+                // Timer icon on left side of notch
+                TimerHUDLeftView(notchViewModel: notchViewModel)
+
                 OnlyNotchView(
                     notchSize: notchViewModel.notchSize
                 )
-                
+
+                // Timer time on right side of notch
+                TimerHUDRightView(notchViewModel: notchViewModel)
+
                 NowPlayingHUDRightView(
                     notchViewModel: notchViewModel,
                     nowPlayingModel: collapsedNotchViewModel.nowPlayingMedia

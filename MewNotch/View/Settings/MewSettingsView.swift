@@ -8,26 +8,26 @@
 import SwiftUI
 
 struct MewSettingsView: View {
-    
+
     @Environment(\.scenePhase) var scenePhase
-    
+
     enum SettingsPages: String, CaseIterable, Identifiable {
         var id: String { rawValue }
-        
+
         case General
         case Notch
-        
+
         case ExpandedItems
         case CollapsedItems
-        
+
         case About
     }
 
-    
+
     @StateObject var defaultsManager = MewDefaultsManager.shared
-    
+
     @State var selectedPage: SettingsPages = .General
-    
+
     var body: some View {
         NavigationSplitView(
             sidebar: {
@@ -39,44 +39,44 @@ struct MewSettingsView: View {
                             NavigationLink(destination: GeneraSettingsView()) {
                                 HStack(spacing: 12) {
                                     SettingsIcon(icon: MewNotch.Assets.icGeneral, color: MewNotch.Colors.general)
-                                    Text("General")
+                                    Text("settings.general".localized)
                                         .font(.headline)
                                         .fontWeight(.medium)
                                 }
                             }
                             .id(SettingsPages.General)
-                            
+
                             NavigationLink(destination: NotchSettingsView()) {
                                 HStack(spacing: 12) {
                                     SettingsIcon(icon: MewNotch.Assets.icNotch, color: MewNotch.Colors.notch)
-                                    Text("Notch")
+                                    Text("settings.notch".localized)
                                         .font(.headline)
                                         .fontWeight(.medium)
                                 }
                             }
                             .id(SettingsPages.Notch)
                         }
-                            
+
 
                     )
-                    
+
                     Section(
                         content: {
                             NavigationLink(destination: CollapsedItemsSettingsView()) {
                                 HStack(spacing: 12) {
                                     SettingsIcon(icon: MewNotch.Assets.icHud, color: MewNotch.Colors.hud)
-                                    Text("Collapsed")
+                                    Text("settings.collapsedItems".localized)
                                         .font(.headline)
                                         .fontWeight(.medium)
                                 }
                             }
                             .id(SettingsPages.CollapsedItems)
-                            
+
                             NavigationLink(destination: ExpandedItemsSettingsView()) {
                                 HStack(spacing: 12) {
                                     SettingsIcon(icon: MewNotch.Assets.icMedia, color: MewNotch.Colors.nowPlaying)
                                         .foregroundStyle(.white)
-                                    Text("Expanded")
+                                    Text("settings.expandedItems".localized)
                                         .font(.headline)
                                         .fontWeight(.medium)
                                 }
@@ -84,22 +84,22 @@ struct MewSettingsView: View {
                             .id(SettingsPages.ExpandedItems)
                         },
                         header: {
-                            Text("Notch Items")
+                            Text("settings.expandedItems".localized)
                         }
                     )
-                    
+
                     Section {
                         NavigationLink(destination: AboutAppView()) {
                             HStack(spacing: 12) {
                                 SettingsIcon(icon: MewNotch.Assets.icAbout, color: MewNotch.Colors.about)
-                                Text("About")
+                                Text("settings.about".localized)
                                     .font(.headline)
                                     .fontWeight(.medium)
                             }
                         }
                         .id(SettingsPages.About)
                     }
-                    
+
                 }
             },
             detail: {
@@ -116,12 +116,12 @@ struct MewSettingsView: View {
             ) else {
                 return
             }
-            
+
             window.toolbarStyle = .unified
             window.styleMask.insert(.resizable)
             window.styleMask.insert(.miniaturizable)
             window.styleMask.insert(.closable)
-            
+
             NSApp.activate()
         }
     }

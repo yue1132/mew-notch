@@ -69,7 +69,7 @@ struct BashView: View {
         guard bashDefaults.autoRefresh else { return }
         
         timer = Timer.scheduledTimer(withTimeInterval: bashDefaults.refreshInterval, repeats: true) { _ in
-            runCommand()
+            self.runCommand()
         }
     }
     
@@ -81,24 +81,26 @@ struct BashView: View {
     private func runCommand() {
         let task = Process()
         let pipe = Pipe()
-        
+
         task.standardOutput = pipe
         task.standardError = pipe
         task.arguments = ["-c", bashDefaults.command]
-        task.launchPath = "/bin/bash"
-        
-        do {
-            try task.run()
-            
-            let data = pipe.fileHandleForReading.readDataToEndOfFile()
-            if let outputString = String(data: data, encoding: .utf8) {
+        task.executableURL = URL(fileURLWithPath: "/bin/bash")
+
+        DispatchQueue.global(qos: .userInitiated).async {
+            do {
+                try task.run()
+
+                let data = pipe.fileHandleForReading.readDataToEndOfFile()
+                let outputString = String(data: data, encoding: .utf8) ?? ""
+
                 DispatchQueue.main.async {
-                    self.output = outputString.trimmingCharacters(in: .whitespacesAndNewlines)
+                    self.output = String(outputString.trimmingCharacters(in: .whitespacesAndNewlines).prefix(10000))
                 }
-            }
-        } catch {
-            DispatchQueue.main.async {
-                self.output = "Error: \(error.localizedDescription)"
+            } catch {
+                DispatchQueue.main.async {
+                    self.output = "Error: \(error.localizedDescription)"
+                }
             }
         }
     }

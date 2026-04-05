@@ -16,7 +16,7 @@ struct ExpandedBashSettingsView: View {
         Form {
             Section {
                 VStack(alignment: .leading, spacing: 12) {
-                    Text("Command")
+                    Text("bash.settings.command".localized)
                         .font(.headline)
                     
                     TextEditor(text: $bashDefaults.command)
@@ -30,19 +30,19 @@ struct ExpandedBashSettingsView: View {
                                 .stroke(Color.secondary.opacity(0.2), lineWidth: 1)
                         )
                     
-                    Text("Enter a bash command to execute. The output will be displayed in the notch.")
+                    Text("bash.settings.command.subtitle".localized)
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
                 .padding(.vertical, 8)
             } header: {
-                Text("Bash Script")
+                Text("bash.settings.script".localized)
             }
             
             Section {
                 SettingsRow(
-                    title: "Show Command",
-                    subtitle: "Display the command text in the notch",
+                    title: "bash.settings.showCommand".localized,
+                    subtitle: "bash.settings.showCommand.subtitle".localized,
                     icon: Image(systemName: "text.alignleft"),
                     color: .purple
                 ) {
@@ -50,7 +50,7 @@ struct ExpandedBashSettingsView: View {
                 }
                 
                 SettingsRow(
-                    title: "Width Multiplier",
+                    title: "bash.settings.widthMultiplier".localized,
                     subtitle: "\(String(format: "%.1f", bashDefaults.widthMultiplier))x",
                     icon: Image(systemName: "text.alignleft"),
                     color: .purple
@@ -63,8 +63,8 @@ struct ExpandedBashSettingsView: View {
                 }
                 
                 SettingsRow(
-                    title: "Auto-Refresh",
-                    subtitle: "Automatically execute the command periodically",
+                    title: "bash.settings.autoRefresh".localized,
+                    subtitle: "bash.settings.autoRefresh.subtitle".localized,
                     icon: Image(systemName: "arrow.clockwise.circle"),
                     color: .green
                 ) {
@@ -72,7 +72,7 @@ struct ExpandedBashSettingsView: View {
                 }
                 
                 SettingsRow(
-                    title: "Refresh Interval",
+                    title: "common.refreshInterval".localized,
                     subtitle: "\(Int(bashDefaults.refreshInterval))s",
                     icon: Image(systemName: "clock.arrow.circlepath"),
                     color: .green
@@ -86,7 +86,7 @@ struct ExpandedBashSettingsView: View {
                 .disabled(!bashDefaults.autoRefresh)
                 .opacity(bashDefaults.autoRefresh ? 1.0 : 0.6)
             } header: {
-                Text("Behavior")
+                Text("common.behavior".localized)
             }
         }
         .formStyle(.grouped)

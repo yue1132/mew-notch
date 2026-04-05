@@ -109,24 +109,15 @@ class NotchViewModel: ObservableObject {
             }
         }
         
-        withAnimation {
+        withAnimation(MewAnimation.fade) {
             self.isHovered = isHovered
         }
     }
     
     func onTap() {
-        withAnimation(
-            .spring(
-                .bouncy(
-                    duration: 0.4,
-                    extraBounce: 0.1
-                )
-            )
-        ) {
+        withAnimation(MewAnimation.expand) {
             self.isExpanded = true
-        }
-        
-        withAnimation {
+
             self.cornerRadius = NotchUtils.shared.expandedCornerRadius
             self.extraNotchPadSize = .init(
                 width: self.cornerRadius.top * 2,

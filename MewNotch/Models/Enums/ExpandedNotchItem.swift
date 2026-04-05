@@ -5,27 +5,41 @@
 //  Created by Monu Kumar on 28/04/25.
 //
 
-
 enum ExpandedNotchItem: String, CaseIterable, Codable, Identifiable {
     var id: String {
         self.rawValue
     }
-    
+
     case Mirror
     case NowPlaying
     case Bash
-    
+    case Bluetooth
+    case GitStatus
+    case Calendar
+    case SystemMonitor
+    case Timer
+
     var displayName: String {
         switch self {
         case .Mirror:
-            return "Mirror"
+            return "item.mirror".localized
         case .NowPlaying:
-            return "Now Playing"
+            return "item.nowPlaying".localized
         case .Bash:
-            return "Bash Command"
+            return "item.bash".localized
+        case .Bluetooth:
+            return "item.bluetooth".localized
+        case .GitStatus:
+            return "item.gitStatus".localized
+        case .Calendar:
+            return "item.calendar".localized
+        case .SystemMonitor:
+            return "item.systemMonitor".localized
+        case .Timer:
+            return "item.timer".localized
         }
     }
-    
+
     var imageSystemName: String {
         switch self {
         case .Mirror:
@@ -34,6 +48,16 @@ enum ExpandedNotchItem: String, CaseIterable, Codable, Identifiable {
             return "music.note"
         case .Bash:
             return "terminal"
+        case .Bluetooth:
+            return "bluetooth"
+        case .GitStatus:
+            return "branch"
+        case .Calendar:
+            return "calendar"
+        case .SystemMonitor:
+            return "cpu"
+        case .Timer:
+            return "timer"
         }
     }
 }

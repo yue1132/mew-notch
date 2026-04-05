@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct ExpandedMirrorSettingsView: View {
-    
+
     @StateObject private var mirrorDefaults = MirrorDefaults.shared
     @StateObject private var notchDefaults = NotchDefaults.shared
-    
+
     var body: some View {
         Form {
             Section {
                 SettingsRow(
-                    title: "Corner Radius",
-                    subtitle: "Adjust the shape of the mirror",
+                    title: "mirror.settings.cornerRadius".localized,
+                    subtitle: "mirror.settings.cornerRadius.subtitle".localized,
                     icon: MewNotch.Assets.icCornerRadius,
                     color: MewNotch.Colors.mirror
                 ) {
@@ -28,20 +28,20 @@ struct ExpandedMirrorSettingsView: View {
                     )
                 }
             } header: {
-                Text("Mirror Appearance")
+                Text("mirror.settings.section.appearance".localized)
             }
-            
+
             Section {
                 SettingsRow(
-                    title: "Auto-Start Mirror",
-                    subtitle: "Automatically activate camera when Expanded Notch opens",
+                    title: "mirror.settings.autoStart".localized,
+                    subtitle: "mirror.settings.autoStart.subtitle".localized,
                     icon: MewNotch.Assets.icVideo,
                     color: MewNotch.Colors.video
                 ) {
                     Toggle("", isOn: $mirrorDefaults.autoStart)
                 }
             } header: {
-                Text("Behavior")
+                Text("mirror.settings.section.behavior".localized)
             }
         }
         .formStyle(.grouped)

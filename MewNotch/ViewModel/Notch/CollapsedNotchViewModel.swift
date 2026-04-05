@@ -266,9 +266,9 @@ class CollapsedNotchViewModel: ObservableObject {
             return
         }
         
-        var newBrightness: Float! = (notification.userInfo?["value"] as? Float)
-        newBrightness = newBrightness ?? Brightness.sharedInstance().brightness
-        
+        let newBrightness: Float = (notification.userInfo?["value"] as? Float)
+            ?? Brightness.sharedInstance().brightness
+
         defer {
             lastBrightness = newBrightness
         }

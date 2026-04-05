@@ -1,0 +1,382 @@
+/*
+  Localizable.strings
+  MewNotch
+
+  Created for internationalization support
+  Chinese Simplified
+*/
+
+// MARK: - App Name
+"app.name" = "MewNotch";
+
+// MARK: - Menu Bar
+"menu.about" = "关于 MewNotch";
+"menu.settings" = "设置...";
+"menu.quit" = "退出 MewNotch";
+"menu.openSettings" = "打开设置";
+
+// MARK: - Settings Navigation
+"settings.general" = "通用";
+"settings.notch" = "刘海";
+"settings.expandedItems" = "展开项";
+"settings.collapsedItems" = "收起项";
+"settings.about" = "关于";
+
+// MARK: - Settings - General
+"settings.general.launchAtLogin" = "登录时启动";
+"settings.general.launchAtLogin.subtitle" = "登录时自动启动 MewNotch";
+"settings.general.statusIcon" = "状态图标";
+"settings.general.statusIcon.subtitle" = "显示菜单栏图标";
+"settings.general.disableSystemHUD" = "禁用系统 HUD";
+"settings.general.disableSystemHUD.subtitle" = "隐藏 macOS 默认的音量、亮度等 HUD";
+"settings.general.accessibilityRequired" = "需要辅助功能权限";
+"settings.general.openSystemSettings" = "打开系统设置";
+"settings.general.section.app" = "应用";
+"settings.general.section.system" = "系统";
+
+// MARK: - Settings - Notch
+"settings.notch.displayVisibility" = "显示位置";
+"settings.notch.displayVisibility.notchedOnly" = "仅带刘海的显示器";
+"settings.notch.displayVisibility.allDisplays" = "所有显示器";
+"settings.notch.displayVisibility.custom" = "自定义";
+"settings.notch.shownOnDisplays" = "显示在";
+"settings.notch.lockScreen" = "锁屏显示";
+"settings.notch.lockScreen.subtitle" = "与文件架功能不兼容";
+"settings.notch.heightMode" = "高度模式";
+"settings.notch.heightMode.matchNotch" = "匹配刘海";
+"settings.notch.heightMode.matchMenuBar" = "匹配菜单栏";
+"settings.notch.heightMode.manual" = "手动";
+"settings.notch.glassEffect" = "玻璃效果";
+"settings.notch.glassEffect.subtitle" = "为刘海添加玻璃模糊效果";
+"settings.notch.expandOnHover" = "悬停展开";
+"settings.notch.expandOnHover.subtitle" = "鼠标悬停时展开刘海";
+"settings.notch.showSeparators" = "显示分隔线";
+"settings.notch.resetViewOnCollapse" = "收起时重置视图";
+"settings.notch.resetViewOnCollapse.subtitle" = "刘海收起时重置到主页视图";
+"settings.notch.section.appearance" = "外观";
+"settings.notch.section.behavior" = "行为";
+"settings.notch.section.display" = "显示";
+
+// MARK: - Settings - Expanded Items
+"settings.expandedItems.manageOrder" = "管理和排序项目";
+"settings.expandedItems.showSeparator" = "显示分隔线";
+"settings.expandedItems.selectItem" = "选择项目";
+"settings.expandedItems.selectItem.description" = "在上方选择一个项目进行配置";
+
+// MARK: - Settings - Collapsed Items
+"settings.collapsedItems" = "收起项";
+"settings.collapsedItems.audioOutput" = "音频输出";
+"settings.collapsedItems.audioInput" = "音频输入";
+"settings.collapsedItems.brightness" = "亮度";
+"settings.collapsedItems.media" = "媒体";
+"settings.collapsedItems.power" = "电源";
+
+// MARK: - Settings - About
+"settings.about.version" = "版本";
+"settings.about.checkUpdates" = "检查更新";
+"settings.about.website" = "网站";
+"settings.about.github" = "GitHub";
+"settings.about.license" = "许可证";
+"settings.about.madeWith" = "使用 Swift 和 SwiftUI 用心制作 ❤️";
+"settings.about.credits" = "致谢";
+"settings.about.section.info" = "信息";
+"settings.about.section.links" = "链接";
+
+// MARK: - Expanded Notch Items
+"item.mirror" = "镜像";
+"item.nowPlaying" = "正在播放";
+"item.bash" = "Bash 命令";
+"item.bluetooth" = "蓝牙设备";
+"item.gitStatus" = "Git & CI 状态";
+"item.calendar" = "日历";
+"item.systemMonitor" = "系统监控";
+"item.timer" = "计时器";
+
+// MARK: - Mirror View
+"mirror.title" = "镜像";
+"mirror.tapToAllow" = "点击允许相机访问";
+"mirror.cameraRequired" = "需要相机权限";
+"mirror.settings.cornerRadius" = "圆角半径";
+"mirror.settings.cornerRadius.subtitle" = "调整镜像的形状";
+"mirror.settings.autoStart" = "自动启动镜像";
+"mirror.settings.autoStart.subtitle" = "展开刘海时自动激活摄像头";
+"mirror.settings.section.appearance" = "镜像外观";
+"mirror.settings.section.behavior" = "行为";
+
+// MARK: - Now Playing
+"nowPlaying.noMedia" = "无媒体播放";
+"nowPlaying.settings.showArtwork" = "显示专辑封面";
+"nowPlaying.settings.showProgress" = "显示进度条";
+"nowPlaying.settings.refreshInterval" = "刷新间隔";
+
+// MARK: - Bash
+"bash.settings.command" = "命令";
+"bash.settings.command.subtitle" = "输入要执行的 bash 命令，输出将显示在刘海中。";
+"bash.settings.command.placeholder" = "输入 bash 命令";
+"bash.settings.refreshInterval" = "刷新间隔";
+"bash.settings.showOutput" = "显示输出";
+
+// MARK: - Bluetooth
+"bluetooth.noDevices" = "无音频设备";
+"bluetooth.connectDevice" = "连接蓝牙耳机或扬声器";
+"bluetooth.refreshInterval" = "刷新间隔";
+"bluetooth.refreshInterval.subtitle" = "检查设备变化的频率";
+"bluetooth.connectionNotifications" = "连接通知";
+"bluetooth.connectionNotifications.subtitle" = "设备连接/断开时显示通知";
+"bluetooth.section.notifications" = "通知";
+
+// MARK: - Git Status
+"git.noRepository" = "无活跃仓库";
+"git.openProject" = "打开项目文件夹";
+"git.error" = "错误";
+"git.loading" = "扫描中...";
+"git.refreshing" = "刷新中...";
+"git.scanHint" = "在设置中添加扫描路径";
+"git.autoDetect" = "自动检测仓库";
+"git.autoDetect.subtitle" = "自动检测当前 Git 仓库";
+"git.repositoryPath" = "仓库路径";
+"git.repositoryPath.subtitle" = "要监控的 Git 仓库路径";
+"git.showCIStatus" = "显示 CI 状态";
+"git.showCIStatus.subtitle" = "显示 GitHub Actions 工作流状态";
+"git.githubToken" = "GitHub Token（可选）";
+"git.githubToken.subtitle" = "用于私有仓库";
+"git.showUncommittedCount" = "显示未提交数量";
+"git.showUncommittedCount.subtitle" = "显示未提交文件的数量";
+"git.refreshInterval" = "刷新间隔";
+"git.refreshInterval.subtitle" = "检查 Git 状态变化的频率";
+"git.ciFailureNotifications" = "CI 失败通知";
+"git.ciFailureNotifications.subtitle" = "CI 失败时显示通知";
+"git.section.repository" = "仓库";
+"git.section.ci" = "CI/CD";
+"git.section.display" = "显示";
+"git.section.notifications" = "通知";
+"git.section.discovery" = "仓库发现";
+"git.settings.scanPaths" = "扫描路径";
+"git.settings.scanPathPlaceholder" = "~/路径";
+"git.settings.addPath" = "添加";
+"git.settings.scanDepth" = "扫描深度";
+"git.settings.scanDepth.subtitle" = "扫描仓库的目录深度";
+"git.settings.maxRepos" = "最大仓库数";
+"git.settings.maxRepos.subtitle" = "最多显示的活跃仓库数量";
+"git.settings.activityThreshold" = "活跃阈值";
+"git.settings.activityThreshold.subtitle" = "仅显示此时间内有活动的仓库";
+"git.settings.days" = "天";
+
+// MARK: - HUD Settings
+"hud.style" = "样式";
+"hud.style.minimal" = "简约";
+"hud.style.progress" = "进度条";
+"hud.style.notched" = "刘海式";
+"hud.isEnabled" = "已启用";
+"hud.showAutoBrightness" = "显示自动亮度变化";
+"hud.showTimeRemaining" = "显示剩余时间";
+"hud.stepSize" = "步进值";
+
+// MARK: - Language Settings
+"settings.language" = "语言";
+"settings.language.system" = "系统默认";
+"settings.language.english" = "English";
+"settings.language.chinese" = "简体中文";
+"settings.language.subtitle" = "选择您的首选语言";
+"settings.language.restartRequired" = "更改语言后需要重启应用才能生效";
+"settings.language.section" = "语言";
+
+// MARK: - Common
+"common.enabled" = "已启用";
+"common.disabled" = "已禁用";
+"common.save" = "保存";
+"common.cancel" = "取消";
+"common.reset" = "重置";
+"common.close" = "关闭";
+"common.seconds" = "秒";
+"common.minutes" = "分钟";
+"common.percent" = "%";
+"common.on" = "开";
+"common.off" = "关";
+"common.yes" = "是";
+"common.no" = "否";
+
+// MARK: - Shelf
+"shelf.title" = "文件架";
+"shelf.empty" = "拖放文件到这里";
+"shelf.clear" = "清空文件架";
+"shelf.removeFile" = "移除文件";
+
+// MARK: - Menu Bar / Context Menu
+"menu.fixNotch" = "修复刘海";
+"menu.checkForUpdates" = "检查更新...";
+
+// MARK: - Settings - Notch (additional)
+"settings.notch.showOn" = "显示刘海于";
+"settings.notch.chooseDisplays" = "选择要显示刘海的显示器";
+"settings.notch.refreshList" = "刷新列表";
+"settings.notch.hideOnFullScreen" = "全屏时隐藏";
+"settings.notch.hideOnFullScreen.subtitle" = "检测到全屏应用时隐藏刘海";
+"settings.notch.height" = "高度";
+"settings.notch.applyGlassEffect" = "应用玻璃效果";
+"settings.notch.applyGlassEffect.subtitle" = "将强制启用「悬停展开」";
+"settings.notch.expandOnHover.subtitle" = "悬停超过 500ms 时展开刘海。\n将禁用所有 HUD 的点击交互。";
+"settings.notch.resetViewOnCollapse.active" = "收起时刘海将重置到主页";
+"settings.notch.resetViewOnCollapse.inactive" = "收起时刘海将保留当前状态";
+"settings.notch.section.interface" = "界面";
+"settings.notch.section.interaction" = "交互";
+"settings.notch.section.displays" = "显示器";
+
+// MARK: - Display Visibility
+"display.allDisplays" = "所有显示器";
+"display.notchedOnly" = "仅带刘海的显示器";
+"display.custom" = "自定义";
+
+// MARK: - Height Mode
+"heightMode.matchNotch" = "匹配刘海";
+"heightMode.matchMenuBar" = "匹配菜单栏";
+"heightMode.manual" = "手动";
+
+// MARK: - HUD Style
+"hudStyle.minimal" = "简约";
+"hudStyle.progress" = "进度条";
+"hudStyle.notched" = "刘海式";
+
+// MARK: - Settings - HUD (Collapsed Items)
+"settings.collapsedItems.title" = "收起项设置";
+"settings.collapsedItems.audio" = "音频";
+"settings.collapsedItems.brightness" = "亮度";
+"settings.collapsedItems.power" = "电源";
+"settings.collapsedItems.media" = "媒体";
+
+// MARK: - HUD Audio Settings
+"hud.audio.output" = "输出";
+"hud.audio.input" = "输入";
+"hud.audio.showsVolumeChanges" = "显示音量变化";
+"hud.audio.stepSize" = "步进值";
+"hud.audio.designDescription" = "HUD 使用的设计样式";
+
+// MARK: - HUD Brightness Settings
+"hud.brightness.showsBrightnessChanges" = "显示亮度变化";
+"hud.brightness.showAutoBrightness" = "显示自动亮度变化";
+
+// MARK: - HUD Power Settings
+"hud.power.showsPowerState" = "插入/拔出电源时显示电源状态";
+"hud.power.showTimeRemaining" = "显示剩余时间";
+"hud.power.showTimeRemaining.subtitle" = "显示电池预计剩余时间";
+
+// MARK: - HUD Media Settings
+"hud.media.showsMediaPlaying" = "显示正在播放的媒体应用（含动画）";
+
+// MARK: - Common Settings Labels
+"common.enabled" = "已启用";
+"common.style" = "样式";
+"common.behavior" = "行为";
+"common.generalSettings" = "通用设置";
+"common.refreshInterval" = "刷新间隔";
+
+// MARK: - Bash View
+"bash.running" = "运行中...";
+"bash.error" = "错误：%@";
+
+// MARK: - Bash Settings (additional)
+"bash.settings.script" = "Bash 脚本";
+"bash.settings.showCommand" = "显示命令";
+"bash.settings.showCommand.subtitle" = "在刘海中显示命令文本";
+"bash.settings.widthMultiplier" = "宽度倍数";
+"bash.settings.autoRefresh" = "自动刷新";
+"bash.settings.autoRefresh.subtitle" = "定期自动执行命令";
+
+// MARK: - Now Playing Settings
+"nowPlaying.settings.cornerRadius" = "圆角半径";
+"nowPlaying.settings.showArtist" = "显示艺术家";
+"nowPlaying.settings.showAlbum" = "显示专辑";
+"nowPlaying.settings.showAppIcon" = "显示应用图标";
+
+// MARK: - Git Settings (additional, for ones not yet localized)
+"git.settings.autoDetect" = "自动检测仓库";
+"git.settings.autoDetect.subtitle" = "自动检测当前 Git 仓库";
+"git.settings.repositoryPath" = "仓库路径";
+"git.settings.repositoryPath.subtitle" = "要监控的 Git 仓库路径";
+"git.settings.showCIStatus" = "显示 CI 状态";
+"git.settings.showCIStatus.subtitle" = "显示 GitHub Actions 工作流状态";
+"git.settings.gitHubToken" = "GitHub Token（可选）";
+"git.settings.gitHubToken.subtitle" = "用于私有仓库";
+"git.settings.showUncommittedCount" = "显示未提交数量";
+"git.settings.showUncommittedCount.subtitle" = "显示未提交文件的数量";
+"git.settings.refreshInterval.subtitle" = "检查 Git 状态变化的频率";
+"git.settings.ciFailureNotifications" = "CI 失败通知";
+"git.settings.ciFailureNotifications.subtitle" = "CI 失败时显示通知";
+"git.settings.section.repository" = "仓库";
+"git.settings.section.ci" = "CI/CD";
+"git.settings.section.display" = "显示";
+"git.settings.section.notifications" = "通知";
+
+// MARK: - About
+"settings.about.checkForUpdates" = "检查更新";
+"settings.about.versionFormat" = "版本 %@";
+// MARK: - Calendar
+"calendar.allDay" = "全天";
+"calendar.noEvents" = "无日程";
+"calendar.addEvent" = "点击打开日历添加";
+"calendar.loading" = "加载中...";
+"calendar.authorizationRequired" = "需要日历访问权限";
+"calendar.authorize" = "授权访问";
+"calendar.settings.daysToShow" = "显示天数";
+"calendar.settings.daysToShow.subtitle" = "显示未来多少天的日程";
+"calendar.settings.maxEvents" = "最大事件数";
+"calendar.settings.maxEvents.subtitle" = "最多显示多少个事件";
+"calendar.settings.showAllDay" = "显示全天事件";
+"calendar.settings.showAllDay.subtitle" = "在列表中显示全天事件";
+"calendar.settings.showReminders" = "显示提醒事项";
+"calendar.settings.showReminders.subtitle" = "同时显示待办提醒";
+"calendar.settings.refreshInterval.subtitle" = "自动刷新日程的间隔";
+"calendar.settings.section.display" = "显示";
+"calendar.settings.section.reminders" = "提醒事项";
+"calendar.settings.section.sync" = "同步";
+"calendar.settings.section.permissions" = "权限";
+
+// MARK: - System Monitor
+"systemMonitor.cpu" = "CPU";
+"systemMonitor.memory" = "内存";
+"systemMonitor.network" = "网络";
+"systemMonitor.upload" = "上传";
+"systemMonitor.download" = "下载";
+"systemMonitor.noData" = "无数据";
+"systemMonitor.settings.showCpu" = "显示 CPU";
+"systemMonitor.settings.showCpu.subtitle" = "显示 CPU 使用率";
+"systemMonitor.settings.showMemory" = "显示内存";
+"systemMonitor.settings.showMemory.subtitle" = "显示内存使用情况";
+"systemMonitor.settings.showNetwork" = "显示网络";
+"systemMonitor.settings.showNetwork.subtitle" = "显示网络速度";
+"systemMonitor.settings.refreshInterval.subtitle" = "更新系统数据的频率";
+"systemMonitor.settings.section.display" = "显示";
+
+// MARK: - Timer
+"timer.work" = "工作中";
+"timer.break" = "休息中";
+"timer.ready" = "准备就绪";
+"timer.completed" = "已完成";
+"timer.start" = "开始";
+"timer.pause" = "暂停";
+"timer.reset" = "重置";
+"timer.pomodoro" = "番茄钟";
+"timer.countdown" = "倒计时";
+"timer.settings.workDuration" = "工作时长";
+"timer.settings.workDuration.subtitle" = "番茄钟工作时长（分钟）";
+"timer.settings.breakDuration" = "休息时长";
+"timer.settings.breakDuration.subtitle" = "番茄钟休息时长（分钟）";
+"timer.settings.soundEnabled" = "提示音";
+"timer.settings.soundEnabled.subtitle" = "计时结束时播放提示音";
+"timer.settings.notificationEnabled" = "通知提醒";
+"timer.settings.notificationEnabled.subtitle" = "计时结束时发送通知";
+"timer.settings.section.pomodoro" = "番茄钟";
+"timer.settings.section.notifications" = "通知";
+
+// MARK: - Common
+"common.minutes" = "分钟";
+"common.seconds" = "秒";
+
+// MARK: - Timer (additional)
+"timer.settings.section.pomodoro" = "番茄钟设置";
+"timer.settings.soundEnabled" = "提示音";
+"timer.settings.soundEnabled.subtitle" = "计时结束时播放提示音";
+"timer.pomodoro.completed" = "已完成 %d 个番茄钟";
+"timer.break.completed" = "休息结束，准备开始新的工作！";
+"timer.completed" = "计时完成";
+"timer.countdown.completed" = "倒计时已完成";

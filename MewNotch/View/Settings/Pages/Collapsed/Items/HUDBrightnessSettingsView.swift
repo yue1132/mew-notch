@@ -15,30 +15,30 @@ struct HUDBrightnessSettingsView: View {
         Form {
             Section {
                 SettingsRow(
-                    title: "Enabled",
-                    subtitle: "Shows brightness changes",
+                    title: "common.enabled".localized,
+                    subtitle: "hud.brightness.showsBrightnessChanges".localized,
                     icon: MewNotch.Assets.icBrightnessFill,
                     color: MewNotch.Colors.brightness
                 ) {
                     Toggle("", isOn: $viewModel.defaults.isEnabled)
                 }
-                
+
                 SettingsRow(
-                    title: "Style",
+                    title: "common.style".localized,
                     icon: MewNotch.Assets.icPaintbrush,
                     color: MewNotch.Colors.style
                 ) {
                     Picker("", selection: $viewModel.defaults.style) {
                         ForEach(HUDStyle.allCases) { style in
-                            Text(style.rawValue.capitalized).tag(style)
+                            Text(style.displayName).tag(style)
                         }
                     }
                     .labelsHidden()
                 }
                 .disabled(!viewModel.defaults.isEnabled)
-                
+
                 SettingsRow(
-                    title: "Show Auto Brightness Changes",
+                    title: "hud.brightness.showAutoBrightness".localized,
                     icon: MewNotch.Assets.icBoltBadgeAutomatic,
                     color: MewNotch.Colors.autoBrightness
                 ) {
@@ -51,7 +51,7 @@ struct HUDBrightnessSettingsView: View {
                         
                         VStack(alignment: .leading, spacing: 4) {
                             HStack {
-                                Text("Step Size")
+                                Text("hud.audio.stepSize".localized)
                                     .font(.title3)
                                     .fontWeight(.medium)
                                 Spacer()
@@ -71,11 +71,11 @@ struct HUDBrightnessSettingsView: View {
                     .padding(.vertical, 8)
                 }
             } footer: {
-               Text("Design to be used for HUD")
+               Text("hud.audio.designDescription".localized)
             }
         }
         .formStyle(.grouped)
-        .navigationTitle("Brightness")
+        .navigationTitle("settings.collapsedItems.brightness".localized)
     }
 }
 

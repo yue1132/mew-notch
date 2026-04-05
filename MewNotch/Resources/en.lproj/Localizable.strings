@@ -1,0 +1,382 @@
+/*
+  Localizable.strings
+  MewNotch
+
+  Created for internationalization support
+*/
+
+// MARK: - App Name
+"app.name" = "MewNotch";
+
+// MARK: - Menu Bar
+"menu.about" = "About MewNotch";
+"menu.settings" = "Settings...";
+"menu.quit" = "Quit MewNotch";
+"menu.openSettings" = "Open Settings";
+
+// MARK: - Settings Navigation
+"settings.general" = "General";
+"settings.notch" = "Notch";
+"settings.expandedItems" = "Expanded Items";
+"settings.collapsedItems" = "Collapsed Items";
+"settings.about" = "About";
+
+// MARK: - Settings - General
+"settings.general.launchAtLogin" = "Launch at Login";
+"settings.general.launchAtLogin.subtitle" = "Automatically start MewNotch when you log in";
+"settings.general.statusIcon" = "Status Icon";
+"settings.general.statusIcon.subtitle" = "Show menu bar icon";
+"settings.general.disableSystemHUD" = "Disable System HUD";
+"settings.general.disableSystemHUD.subtitle" = "Hide the default macOS HUD for volume, brightness, etc.";
+"settings.general.accessibilityRequired" = "Accessibility permissions are required.";
+"settings.general.openSystemSettings" = "Open System Settings";
+"settings.general.section.app" = "App";
+"settings.general.section.system" = "System";
+
+// MARK: - Settings - Notch
+"settings.notch.displayVisibility" = "Display Visibility";
+"settings.notch.displayVisibility.notchedOnly" = "Notched Displays Only";
+"settings.notch.displayVisibility.allDisplays" = "All Displays";
+"settings.notch.displayVisibility.custom" = "Custom";
+"settings.notch.shownOnDisplays" = "Show on Displays";
+"settings.notch.lockScreen" = "Show on Lock Screen";
+"settings.notch.lockScreen.subtitle" = "Incompatible with File Shelf feature";
+"settings.notch.heightMode" = "Height Mode";
+"settings.notch.heightMode.matchNotch" = "Match Notch";
+"settings.notch.heightMode.matchMenuBar" = "Match Menu Bar";
+"settings.notch.heightMode.manual" = "Manual";
+"settings.notch.glassEffect" = "Glass Effect";
+"settings.notch.glassEffect.subtitle" = "Apply a glass-like blur effect to the notch";
+"settings.notch.expandOnHover" = "Expand on Hover";
+"settings.notch.expandOnHover.subtitle" = "Expand the notch when hovering over it";
+"settings.notch.showSeparators" = "Show Separators";
+"settings.notch.resetViewOnCollapse" = "Reset View on Collapse";
+"settings.notch.resetViewOnCollapse.subtitle" = "Reset to home view when notch collapses";
+"settings.notch.section.appearance" = "Appearance";
+"settings.notch.section.behavior" = "Behavior";
+"settings.notch.section.display" = "Display";
+
+// MARK: - Settings - Expanded Items
+"settings.expandedItems.manageOrder" = "Manage and Order Items";
+"settings.expandedItems.showSeparator" = "Show Separator";
+"settings.expandedItems.selectItem" = "Select an Item";
+"settings.expandedItems.selectItem.description" = "Select an item above to configure its settings.";
+
+// MARK: - Settings - Collapsed Items
+"settings.collapsedItems" = "Collapsed Items";
+"settings.collapsedItems.audioOutput" = "Audio Output";
+"settings.collapsedItems.audioInput" = "Audio Input";
+"settings.collapsedItems.brightness" = "Brightness";
+"settings.collapsedItems.media" = "Media";
+"settings.collapsedItems.power" = "Power";
+
+// MARK: - Settings - About
+"settings.about.version" = "Version";
+"settings.about.checkUpdates" = "Check for Updates";
+"settings.about.website" = "Website";
+"settings.about.github" = "GitHub";
+"settings.about.license" = "License";
+"settings.about.madeWith" = "Made with ❤️ using Swift and SwiftUI";
+"settings.about.credits" = "Credits";
+"settings.about.section.info" = "Information";
+"settings.about.section.links" = "Links";
+
+// MARK: - Expanded Notch Items
+"item.mirror" = "Mirror";
+"item.nowPlaying" = "Now Playing";
+"item.bash" = "Bash Command";
+"item.bluetooth" = "Bluetooth Devices";
+"item.gitStatus" = "Git & CI Status";
+"item.calendar" = "Calendar";
+"item.systemMonitor" = "System Monitor";
+"item.timer" = "Timer";
+
+// MARK: - Mirror View
+"mirror.title" = "Mirror";
+"mirror.tapToAllow" = "Tap to Allow Camera";
+"mirror.cameraRequired" = "Camera Access Required";
+"mirror.settings.cornerRadius" = "Corner Radius";
+"mirror.settings.cornerRadius.subtitle" = "Adjust the shape of the mirror";
+"mirror.settings.autoStart" = "Auto-Start Mirror";
+"mirror.settings.autoStart.subtitle" = "Automatically activate camera when Expanded Notch opens";
+"mirror.settings.section.appearance" = "Mirror Appearance";
+"mirror.settings.section.behavior" = "Behavior";
+
+// MARK: - Now Playing
+"nowPlaying.noMedia" = "No Media Playing";
+"nowPlaying.settings.showArtwork" = "Show Album Artwork";
+"nowPlaying.settings.showProgress" = "Show Progress Bar";
+"nowPlaying.settings.refreshInterval" = "Refresh Interval";
+
+// MARK: - Bash
+"bash.settings.command" = "Command";
+"bash.settings.command.subtitle" = "Enter a bash command to execute. The output will be displayed in the notch.";
+"bash.settings.command.placeholder" = "Enter bash command";
+"bash.settings.refreshInterval" = "Refresh Interval";
+"bash.settings.showOutput" = "Show Output";
+
+// MARK: - Bluetooth
+"bluetooth.noDevices" = "No Audio Devices";
+"bluetooth.connectDevice" = "Connect a Bluetooth headset or speaker";
+"bluetooth.refreshInterval" = "Refresh Interval";
+"bluetooth.refreshInterval.subtitle" = "How often to check for device changes";
+"bluetooth.connectionNotifications" = "Connection Notifications";
+"bluetooth.connectionNotifications.subtitle" = "Show notification when devices connect/disconnect";
+"bluetooth.section.notifications" = "Notifications";
+"bluetooth.section.performance" = "Performance";
+
+// MARK: - Git Status
+"git.noRepository" = "No Active Repositories";
+"git.openProject" = "Open a project folder";
+"git.error" = "Error";
+"git.loading" = "Scanning...";
+"git.refreshing" = "Refreshing...";
+"git.scanHint" = "Add scan paths in settings";
+"git.autoDetect" = "Auto-detect Repository";
+"git.autoDetect.subtitle" = "Automatically detect the current Git repository";
+"git.repositoryPath" = "Repository Path";
+"git.repositoryPath.subtitle" = "Path to the Git repository to monitor";
+"git.showCIStatus" = "Show CI Status";
+"git.showCIStatus.subtitle" = "Display GitHub Actions workflow status";
+"git.githubToken" = "GitHub Token (Optional)";
+"git.githubToken.subtitle" = "For private repositories";
+"git.showUncommittedCount" = "Show Uncommitted Count";
+"git.showUncommittedCount.subtitle" = "Display the number of uncommitted files";
+"git.refreshInterval" = "Refresh Interval";
+"git.refreshInterval.subtitle" = "How often to check for Git status changes";
+"git.ciFailureNotifications" = "CI Failure Notifications";
+"git.ciFailureNotifications.subtitle" = "Show notification when CI fails";
+"git.section.repository" = "Repository";
+"git.section.ci" = "CI/CD";
+"git.section.display" = "Display";
+"git.section.notifications" = "Notifications";
+"git.section.discovery" = "Repository Discovery";
+"git.settings.scanPaths" = "Scan Paths";
+"git.settings.scanPathPlaceholder" = "~/path";
+"git.settings.addPath" = "Add";
+"git.settings.scanDepth" = "Scan Depth";
+"git.settings.scanDepth.subtitle" = "How deep to scan for repositories";
+"git.settings.maxRepos" = "Max Repositories";
+"git.settings.maxRepos.subtitle" = "Maximum number of active repos to display";
+"git.settings.activityThreshold" = "Activity Threshold";
+"git.settings.activityThreshold.subtitle" = "Only show repos active within this period";
+"git.settings.days" = "days";
+
+// MARK: - HUD Settings
+"hud.style" = "Style";
+"hud.style.minimal" = "Minimal";
+"hud.style.progress" = "Progress";
+"hud.style.notched" = "Notched";
+"hud.isEnabled" = "Enabled";
+"hud.showAutoBrightness" = "Show Auto Brightness Changes";
+"hud.showTimeRemaining" = "Show Time Remaining";
+"hud.stepSize" = "Step Size";
+
+// MARK: - Language Settings
+"settings.language" = "Language";
+"settings.language.system" = "System Default";
+"settings.language.english" = "English";
+"settings.language.chinese" = "简体中文";
+"settings.language.subtitle" = "Choose your preferred language";
+"settings.language.restartRequired" = "Restart required for language changes to take effect";
+"settings.language.section" = "Language";
+
+// MARK: - Common
+"common.enabled" = "Enabled";
+"common.disabled" = "Disabled";
+"common.save" = "Save";
+"common.cancel" = "Cancel";
+"common.reset" = "Reset";
+"common.close" = "Close";
+"common.seconds" = "s";
+"common.minutes" = "min";
+"common.percent" = "%";
+"common.on" = "On";
+"common.off" = "Off";
+"common.yes" = "Yes";
+"common.no" = "No";
+
+// MARK: - Shelf
+"shelf.title" = "Shelf";
+"shelf.empty" = "Drag files here";
+"shelf.clear" = "Clear Shelf";
+"shelf.removeFile" = "Remove File";
+
+// MARK: - Menu Bar / Context Menu
+"menu.fixNotch" = "Fix Notch";
+"menu.checkForUpdates" = "Check for Updates...";
+
+// MARK: - Settings - Notch (additional)
+"settings.notch.showOn" = "Show Notch On";
+"settings.notch.chooseDisplays" = "Choose Displays to show notch on";
+"settings.notch.refreshList" = "Refresh List";
+"settings.notch.hideOnFullScreen" = "Hide on Full Screen";
+"settings.notch.hideOnFullScreen.subtitle" = "Hides the notch when a full screen app is detected";
+"settings.notch.height" = "Height";
+"settings.notch.applyGlassEffect" = "Apply Glass Effect";
+"settings.notch.applyGlassEffect.subtitle" = "Forces 'Expand on Hover' to be enabled";
+"settings.notch.expandOnHover.subtitle" = "Expand notch when hovered > 500ms.\nDisables click interactions in all HUDs.";
+"settings.notch.resetViewOnCollapse.active" = "Notch resets to Home when Collapsed";
+"settings.notch.resetViewOnCollapse.inactive" = "Notch will retain state when Collapsed";
+"settings.notch.section.interface" = "Interface";
+"settings.notch.section.interaction" = "Interaction";
+"settings.notch.section.displays" = "Displays";
+
+// MARK: - Display Visibility
+"display.allDisplays" = "All Displays";
+"display.notchedOnly" = "Notched Displays Only";
+"display.custom" = "Custom";
+
+// MARK: - Height Mode
+"heightMode.matchNotch" = "Match Notch";
+"heightMode.matchMenuBar" = "Match Menu Bar";
+"heightMode.manual" = "Manual";
+
+// MARK: - HUD Style
+"hudStyle.minimal" = "Minimal";
+"hudStyle.progress" = "Progress";
+"hudStyle.notched" = "Notched";
+
+// MARK: - Settings - HUD (Collapsed Items)
+"settings.collapsedItems.title" = "Collapsed Items Settings";
+"settings.collapsedItems.audio" = "Audio";
+"settings.collapsedItems.brightness" = "Brightness";
+"settings.collapsedItems.power" = "Power";
+"settings.collapsedItems.media" = "Media";
+
+// MARK: - HUD Audio Settings
+"hud.audio.output" = "Output";
+"hud.audio.input" = "Input";
+"hud.audio.showsVolumeChanges" = "Shows volume changes";
+"hud.audio.stepSize" = "Step Size";
+"hud.audio.designDescription" = "Design to be used for HUD";
+
+// MARK: - HUD Brightness Settings
+"hud.brightness.showsBrightnessChanges" = "Shows brightness changes";
+"hud.brightness.showAutoBrightness" = "Show Auto Brightness Changes";
+
+// MARK: - HUD Power Settings
+"hud.power.showsPowerState" = "Shows power state when plugged in/out";
+"hud.power.showTimeRemaining" = "Show Time Remaining";
+"hud.power.showTimeRemaining.subtitle" = "Displays estimated time remaining on battery";
+
+// MARK: - HUD Media Settings
+"hud.media.showsMediaPlaying" = "Shows media playing app with animation";
+
+// MARK: - Common Settings Labels
+"common.enabled" = "Enabled";
+"common.style" = "Style";
+"common.behavior" = "Behavior";
+"common.generalSettings" = "General Settings";
+"common.refreshInterval" = "Refresh Interval";
+
+// MARK: - Bash View
+"bash.running" = "Running...";
+"bash.error" = "Error: %@";
+
+// MARK: - Bash Settings (additional)
+"bash.settings.script" = "Bash Script";
+"bash.settings.showCommand" = "Show Command";
+"bash.settings.showCommand.subtitle" = "Display the command text in the notch";
+"bash.settings.widthMultiplier" = "Width Multiplier";
+"bash.settings.autoRefresh" = "Auto-Refresh";
+"bash.settings.autoRefresh.subtitle" = "Automatically execute the command periodically";
+
+// MARK: - Now Playing Settings
+"nowPlaying.settings.cornerRadius" = "Corner Radius";
+"nowPlaying.settings.showArtist" = "Show Artist";
+"nowPlaying.settings.showAlbum" = "Show Album";
+"nowPlaying.settings.showAppIcon" = "Show App Icon";
+
+// MARK: - Git Settings (additional, for ones not yet localized)
+"git.settings.autoDetect" = "Auto-detect Repository";
+"git.settings.autoDetect.subtitle" = "Automatically detect the current Git repository";
+"git.settings.repositoryPath" = "Repository Path";
+"git.settings.repositoryPath.subtitle" = "Path to the Git repository to monitor";
+"git.settings.showCIStatus" = "Show CI Status";
+"git.settings.showCIStatus.subtitle" = "Display GitHub Actions workflow status";
+"git.settings.gitHubToken" = "GitHub Token (Optional)";
+"git.settings.gitHubToken.subtitle" = "For private repositories";
+"git.settings.showUncommittedCount" = "Show Uncommitted Count";
+"git.settings.showUncommittedCount.subtitle" = "Display the number of uncommitted files";
+"git.settings.refreshInterval.subtitle" = "How often to check for Git status changes";
+"git.settings.ciFailureNotifications" = "CI Failure Notifications";
+"git.settings.ciFailureNotifications.subtitle" = "Show notification when CI fails";
+"git.settings.section.repository" = "Repository";
+"git.settings.section.ci" = "CI/CD";
+"git.settings.section.display" = "Display";
+"git.settings.section.notifications" = "Notifications";
+
+// MARK: - About
+"settings.about.checkForUpdates" = "Check for Updates";
+"settings.about.versionFormat" = "Version %@";
+// MARK: - Calendar
+"calendar.allDay" = "All Day";
+"calendar.noEvents" = "No Events";
+"calendar.addEvent" = "Tap to open Calendar";
+"calendar.loading" = "Loading...";
+"calendar.authorizationRequired" = "Calendar access required";
+"calendar.authorize" = "Authorize";
+"calendar.settings.daysToShow" = "Days to Show";
+"calendar.settings.daysToShow.subtitle" = "Number of days to show events for";
+"calendar.settings.maxEvents" = "Max Events";
+"calendar.settings.maxEvents.subtitle" = "Maximum number of events to display";
+"calendar.settings.showAllDay" = "Show All-Day Events";
+"calendar.settings.showAllDay.subtitle" = "Include all-day events in the list";
+"calendar.settings.showReminders" = "Show Reminders";
+"calendar.settings.showReminders.subtitle" = "Also display reminders";
+"calendar.settings.refreshInterval.subtitle" = "How often to refresh events";
+"calendar.settings.section.display" = "Display";
+"calendar.settings.section.reminders" = "Reminders";
+"calendar.settings.section.sync" = "Sync";
+"calendar.settings.section.permissions" = "Permissions";
+
+// MARK: - System Monitor
+"systemMonitor.cpu" = "CPU";
+"systemMonitor.memory" = "Memory";
+"systemMonitor.network" = "Network";
+"systemMonitor.upload" = "Upload";
+"systemMonitor.download" = "Download";
+"systemMonitor.noData" = "No Data";
+"systemMonitor.settings.showCpu" = "Show CPU";
+"systemMonitor.settings.showCpu.subtitle" = "Display CPU usage";
+"systemMonitor.settings.showMemory" = "Show Memory";
+"systemMonitor.settings.showMemory.subtitle" = "Display memory usage";
+"systemMonitor.settings.showNetwork" = "Show Network";
+"systemMonitor.settings.showNetwork.subtitle" = "Display network speed";
+"systemMonitor.settings.refreshInterval.subtitle" = "How often to update system data";
+"systemMonitor.settings.section.display" = "Display";
+
+// MARK: - Timer
+"timer.work" = "Working";
+"timer.break" = "Break";
+"timer.ready" = "Ready";
+"timer.completed" = "Completed";
+"timer.start" = "Start";
+"timer.pause" = "Pause";
+"timer.reset" = "Reset";
+"timer.pomodoro" = "Pomodoro";
+"timer.countdown" = "Countdown";
+"timer.settings.workDuration" = "Work Duration";
+"timer.settings.workDuration.subtitle" = "Pomodoro work duration in minutes";
+"timer.settings.breakDuration" = "Break Duration";
+"timer.settings.breakDuration.subtitle" = "Pomodoro break duration in minutes";
+"timer.settings.soundEnabled" = "Sound";
+"timer.settings.soundEnabled.subtitle" = "Play sound when timer ends";
+"timer.settings.notificationEnabled" = "Notification";
+"timer.settings.notificationEnabled.subtitle" = "Send notification when timer ends";
+"timer.settings.section.pomodoro" = "Pomodoro";
+"timer.settings.section.notifications" = "Notifications";
+
+// MARK: - Common
+"common.minutes" = "min";
+"common.seconds" = "s";
+
+// MARK: - Timer (additional)
+"timer.settings.section.pomodoro" = "Pomodoro Settings";
+"timer.settings.soundEnabled" = "Sound";
+"timer.settings.soundEnabled.subtitle" = "Play sound when timer ends";
+"timer.pomodoro.completed" = "Completed %d pomodoros";
+"timer.break.completed" = "Break finished! Ready to work?";
+"timer.completed" = "Timer Completed";
+"timer.countdown.completed" = "Countdown finished";

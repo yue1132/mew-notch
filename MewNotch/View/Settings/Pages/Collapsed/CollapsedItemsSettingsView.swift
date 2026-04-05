@@ -14,10 +14,10 @@ struct CollapsedItemsSettingsView: View {
     var body: some View {
         VStack(spacing: 0) {
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 12), count: 4), spacing: 12) {
-                HudTabButton(title: "Audio", icon: MewNotch.Assets.icAudio, tag: 0, selection: $selectedTab)
-                HudTabButton(title: "Brightness", icon: MewNotch.Assets.icBrightnessFill, tag: 1, selection: $selectedTab)
-                HudTabButton(title: "Power", icon: MewNotch.Assets.icPower, tag: 2, selection: $selectedTab)
-                HudTabButton(title: "Media", icon: MewNotch.Assets.icMedia, tag: 3, selection: $selectedTab)
+                HudTabButton(title: "settings.collapsedItems.audio".localized, icon: MewNotch.Assets.icAudio, tag: 0, selection: $selectedTab)
+                HudTabButton(title: "settings.collapsedItems.brightness".localized, icon: MewNotch.Assets.icBrightnessFill, tag: 1, selection: $selectedTab)
+                HudTabButton(title: "settings.collapsedItems.power".localized, icon: MewNotch.Assets.icPower, tag: 2, selection: $selectedTab)
+                HudTabButton(title: "settings.collapsedItems.media".localized, icon: MewNotch.Assets.icMedia, tag: 3, selection: $selectedTab)
             }
             .padding()
             
@@ -37,7 +37,7 @@ struct CollapsedItemsSettingsView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .navigationTitle("Collapsed Items Settings")
+        .navigationTitle("settings.collapsedItems.title".localized)
         .toolbarTitleDisplayMode(.inline)
     }
 }

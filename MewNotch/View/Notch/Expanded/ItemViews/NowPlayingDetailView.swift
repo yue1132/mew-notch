@@ -231,7 +231,7 @@ struct NowPlayingDetailView: View {
     
     @ViewBuilder
     func albumArtView() -> some View {
-        (nowPlayingModel.albumArt ?? NowPlayingMediaModel.Placeholder.albumArt!)
+        (nowPlayingModel.albumArt ?? Image(systemName: "square.fill"))
             .resizable()
             .aspectRatio(
                 1,

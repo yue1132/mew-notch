@@ -15,8 +15,8 @@ struct HUDMediaSettingsView: View {
         Form {
             Section {
                 SettingsRow(
-                    title: "Enabled",
-                    subtitle: "Shows media playing app with animation",
+                    title: "common.enabled".localized,
+                    subtitle: "hud.media.showsMediaPlaying".localized,
                     icon: MewNotch.Assets.icMedia,
                     color: MewNotch.Colors.nowPlaying
                 ) {
@@ -25,7 +25,7 @@ struct HUDMediaSettingsView: View {
             }
         }
         .formStyle(.grouped)
-        .navigationTitle("Media")
+        .navigationTitle("settings.collapsedItems.media".localized)
     }
 }
 
