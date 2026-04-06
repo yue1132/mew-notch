@@ -2,7 +2,7 @@
 //  BluetoothView.swift
 //  MewNotch
 //
-//  Created for Bluetooth feature expansion
+//  Bluetooth devices with battery levels
 //
 
 import SwiftUI
@@ -42,7 +42,7 @@ struct BluetoothView: View {
 
             Text("bluetooth.noDevices".localized)
                 .font(.system(size: 10, weight: .semibold))
-                .foregroundColor(.gray.opacity(0.8))
+                .foregroundColor(.gray)
 
             Text("bluetooth.connectDevice".localized)
                 .font(.system(size: 8))
@@ -80,9 +80,14 @@ struct BluetoothView: View {
 
                     Spacer()
 
-                    Circle()
-                        .fill(Color.green)
-                        .frame(width: 6, height: 6)
+                    // Battery indicator
+                    if device.hasBattery {
+                        batteryView(device: device)
+                    } else {
+                        Circle()
+                            .fill(Color.green)
+                            .frame(width: 6, height: 6)
+                    }
                 }
                 .padding(.horizontal, 10)
                 .padding(.vertical, 6)
@@ -92,6 +97,27 @@ struct BluetoothView: View {
                 )
             }
         }
+    }
+
+    private func batteryView(device: BluetoothDeviceModel) -> some View {
+        HStack(spacing: 3) {
+            Image(systemName: device.batteryIcon)
+                .font(.system(size: 11))
+                .foregroundColor(batteryTintColor(device.batteryLevelMain))
+
+            if let level = device.batteryLevelMain {
+                Text("\(level)%")
+                    .font(.system(size: 9, weight: .semibold))
+                    .foregroundColor(batteryTintColor(level))
+            }
+        }
+    }
+
+    private func batteryTintColor(_ level: Int?) -> Color {
+        guard let level = level else { return .gray }
+        if level >= 50 { return .green }
+        if level >= 20 { return .orange }
+        return .red
     }
 }
 

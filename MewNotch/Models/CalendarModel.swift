@@ -16,6 +16,7 @@ struct CalendarEventModel: Identifiable {
     let isAllDay: Bool
     let calendarName: String?
     let calendarColor: CodableColor?
+    let eventIdentifier: String?
 
     var timeString: String {
         if isAllDay {

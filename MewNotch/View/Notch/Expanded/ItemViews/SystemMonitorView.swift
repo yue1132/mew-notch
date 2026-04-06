@@ -2,7 +2,7 @@
 //  SystemMonitorView.swift
 //  MewNotch
 //
-//  System Monitor - Compact Layout
+//  System Monitor - Compact Layout with hover details
 //
 
 import SwiftUI
@@ -12,6 +12,12 @@ struct SystemMonitorView: View {
     @ObservedObject var notchViewModel: NotchViewModel
     @StateObject private var monitor = SystemMonitorManager.shared
     @StateObject private var defaults = SystemMonitorDefaults.shared
+
+    @State private var hoveredRow: HoverTarget? = nil
+
+    private enum HoverTarget: String {
+        case cpu, memory, network
+    }
 
     var body: some View {
         VStack(spacing: 6) {
@@ -30,7 +36,8 @@ struct SystemMonitorView: View {
             iconColor: .blue,
             label: "CPU",
             value: String(format: "%.0f%%", monitor.cpuUsage),
-            percent: monitor.cpuUsage
+            percent: monitor.cpuUsage,
+            target: .cpu
         )
     }
 
@@ -40,7 +47,8 @@ struct SystemMonitorView: View {
             iconColor: .purple,
             label: "MEM",
             value: monitor.formatMemory(monitor.memoryUsed),
-            percent: monitor.memoryPercentage
+            percent: monitor.memoryPercentage,
+            target: .memory
         )
     }
 
@@ -54,7 +62,7 @@ struct SystemMonitorView: View {
         .background(RoundedRectangle(cornerRadius: 6).fill(Color.white.opacity(0.05)))
     }
 
-    private func row(icon: String, iconColor: Color, label: String, value: String, percent: Double) -> some View {
+    private func row(icon: String, iconColor: Color, label: String, value: String, percent: Double, target: HoverTarget) -> some View {
         VStack(spacing: 3) {
             HStack(spacing: 6) {
                 Image(systemName: icon).font(.system(size: 11)).foregroundColor(iconColor).frame(width: 16)
@@ -76,6 +84,43 @@ struct SystemMonitorView: View {
         .padding(.horizontal, 8)
         .padding(.vertical, 5)
         .background(RoundedRectangle(cornerRadius: 6).fill(Color.white.opacity(0.05)))
+        .overlay {
+            if hoveredRow == target && !monitor.topProcesses.isEmpty {
+                processDetailOverlay(target: target)
+            }
+        }
+        .onHover { isHovered in
+            withAnimation(MewAnimation.fade) {
+                hoveredRow = isHovered ? target : nil
+            }
+        }
+    }
+
+    private func processDetailOverlay(target: HoverTarget) -> some View {
+        VStack(alignment: .leading, spacing: 3) {
+            ForEach(Array(monitor.topProcesses.prefix(3))) { proc in
+                HStack(spacing: 4) {
+                    Text(proc.name)
+                        .font(.system(size: 8))
+                        .foregroundColor(.white)
+                        .lineLimit(1)
+                    Spacer()
+                    if target == .cpu {
+                        Text(String(format: "%.0f%%", proc.cpuUsage))
+                            .font(.system(size: 8, weight: .medium))
+                            .foregroundColor(.secondary)
+                    } else {
+                        Text(String(format: "%.0fM", proc.memoryMB))
+                            .font(.system(size: 8, weight: .medium))
+                            .foregroundColor(.secondary)
+                    }
+                }
+            }
+        }
+        .padding(.horizontal, 8)
+        .padding(.vertical, 5)
+        .background(RoundedRectangle(cornerRadius: 6).fill(Color.black.opacity(0.85)))
+        .transition(.opacity.combined(with: .scale(scale: 0.95)))
     }
 
     private func netStat(icon: String, color: Color, value: String) -> some View {

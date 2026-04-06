@@ -55,4 +55,13 @@ class CalendarDefaults: ObservableObject {
             objectWillChange.send()
         }
     }
+
+    // MARK: - Collapsed Notch
+
+    @AppStorage(PREFIX + "showInNotch")
+    var showInNotch: Bool = true {
+        didSet {
+            objectWillChange.send()
+        }
+    }
 }

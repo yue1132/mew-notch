@@ -119,7 +119,8 @@ class NotchDefaults: ObservableObject {
         PREFIX + "ExpandedNotchItems",
         defaultValue: [
             ExpandedNotchItem.Mirror,
-            ExpandedNotchItem.NowPlaying
+            ExpandedNotchItem.NowPlaying,
+            ExpandedNotchItem.Calendar
         ]
     )
     var expandedNotchItems: [ExpandedNotchItem] {

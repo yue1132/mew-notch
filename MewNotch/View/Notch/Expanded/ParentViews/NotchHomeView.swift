@@ -18,18 +18,22 @@ struct NotchHomeView: View {
 
     var collapsedNotchView: CollapsedNotchView
 
-    var body: some View {
-        HStack(
-            spacing: 12
-        ) {
-            let items = notchDefaults.expandedNotchItems
+    @ObservedObject private var bluetoothManager = BluetoothManager.shared
+    @ObservedObject private var calendarManager = CalendarManager.shared
 
+    var body: some View {
+        let items = notchDefaults.expandedNotchItems
+        let visibleItems = items.filter { shouldShow($0) }
+
+        HStack(
+            spacing: max(CGFloat(4), CGFloat(24 - visibleItems.count * 4))
+        ) {
             ForEach(
-                0..<items.count,
+                0..<visibleItems.count,
                 id: \.self
             ) { index in
 
-                let item = items[index]
+                let item = visibleItems[index]
 
                 switch item {
                 case .Mirror:
@@ -37,17 +41,17 @@ struct NotchHomeView: View {
                         notchViewModel: notchViewModel
                     )
                 case .NowPlaying:
-                    NowPlayingDetailView(
-                        namespace: namespace,
-                        notchViewModel: notchViewModel,
-                        nowPlayingModel: expandedNotchViewModel.nowPlayingMedia ?? .Placeholder
-                    )
+                    if let media = expandedNotchViewModel.nowPlayingMedia {
+                        NowPlayingDetailView(
+                            namespace: namespace,
+                            notchViewModel: notchViewModel,
+                            nowPlayingModel: media
+                        )
+                    }
                 case .Bash:
                     BashView(notchViewModel: notchViewModel)
                 case .Bluetooth:
                     BluetoothView(notchViewModel: notchViewModel)
-                case .GitStatus:
-                    GitStatusView(notchViewModel: notchViewModel)
                 case .Calendar:
                     CalendarView(notchViewModel: notchViewModel)
                 case .SystemMonitor:
@@ -56,7 +60,7 @@ struct NotchHomeView: View {
                     TimerView(notchViewModel: notchViewModel)
                 }
 
-                if notchDefaults.showDividers && index != items.count - 1 {
+                if notchDefaults.showDividers && index != visibleItems.count - 1 {
                     Divider()
                 }
             }
@@ -65,5 +69,16 @@ struct NotchHomeView: View {
         .frame(
             height: notchViewModel.notchSize.height * 3
         )
+    }
+
+    private func shouldShow(_ item: ExpandedNotchItem) -> Bool {
+        switch item {
+        case .Bluetooth:
+            return !bluetoothManager.connectedAudioDevices.isEmpty
+        case .Calendar:
+            return true
+        default:
+            return true
+        }
     }
 }

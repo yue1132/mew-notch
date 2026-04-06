@@ -14,7 +14,6 @@ enum ExpandedNotchItem: String, CaseIterable, Codable, Identifiable {
     case NowPlaying
     case Bash
     case Bluetooth
-    case GitStatus
     case Calendar
     case SystemMonitor
     case Timer
@@ -29,8 +28,6 @@ enum ExpandedNotchItem: String, CaseIterable, Codable, Identifiable {
             return "item.bash".localized
         case .Bluetooth:
             return "item.bluetooth".localized
-        case .GitStatus:
-            return "item.gitStatus".localized
         case .Calendar:
             return "item.calendar".localized
         case .SystemMonitor:
@@ -50,8 +47,6 @@ enum ExpandedNotchItem: String, CaseIterable, Codable, Identifiable {
             return "terminal"
         case .Bluetooth:
             return "bluetooth"
-        case .GitStatus:
-            return "branch"
         case .Calendar:
             return "calendar"
         case .SystemMonitor:

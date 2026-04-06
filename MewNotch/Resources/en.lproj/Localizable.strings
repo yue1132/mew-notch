@@ -86,7 +86,6 @@
 "item.nowPlaying" = "Now Playing";
 "item.bash" = "Bash Command";
 "item.bluetooth" = "Bluetooth Devices";
-"item.gitStatus" = "Git & CI Status";
 "item.calendar" = "Calendar";
 "item.systemMonitor" = "System Monitor";
 "item.timer" = "Timer";
@@ -124,43 +123,8 @@
 "bluetooth.connectionNotifications.subtitle" = "Show notification when devices connect/disconnect";
 "bluetooth.section.notifications" = "Notifications";
 "bluetooth.section.performance" = "Performance";
-
-// MARK: - Git Status
-"git.noRepository" = "No Active Repositories";
-"git.openProject" = "Open a project folder";
-"git.error" = "Error";
-"git.loading" = "Scanning...";
-"git.refreshing" = "Refreshing...";
-"git.scanHint" = "Add scan paths in settings";
-"git.autoDetect" = "Auto-detect Repository";
-"git.autoDetect.subtitle" = "Automatically detect the current Git repository";
-"git.repositoryPath" = "Repository Path";
-"git.repositoryPath.subtitle" = "Path to the Git repository to monitor";
-"git.showCIStatus" = "Show CI Status";
-"git.showCIStatus.subtitle" = "Display GitHub Actions workflow status";
-"git.githubToken" = "GitHub Token (Optional)";
-"git.githubToken.subtitle" = "For private repositories";
-"git.showUncommittedCount" = "Show Uncommitted Count";
-"git.showUncommittedCount.subtitle" = "Display the number of uncommitted files";
-"git.refreshInterval" = "Refresh Interval";
-"git.refreshInterval.subtitle" = "How often to check for Git status changes";
-"git.ciFailureNotifications" = "CI Failure Notifications";
-"git.ciFailureNotifications.subtitle" = "Show notification when CI fails";
-"git.section.repository" = "Repository";
-"git.section.ci" = "CI/CD";
-"git.section.display" = "Display";
-"git.section.notifications" = "Notifications";
-"git.section.discovery" = "Repository Discovery";
-"git.settings.scanPaths" = "Scan Paths";
-"git.settings.scanPathPlaceholder" = "~/path";
-"git.settings.addPath" = "Add";
-"git.settings.scanDepth" = "Scan Depth";
-"git.settings.scanDepth.subtitle" = "How deep to scan for repositories";
-"git.settings.maxRepos" = "Max Repositories";
-"git.settings.maxRepos.subtitle" = "Maximum number of active repos to display";
-"git.settings.activityThreshold" = "Activity Threshold";
-"git.settings.activityThreshold.subtitle" = "Only show repos active within this period";
-"git.settings.days" = "days";
+"bluetooth.noDevices" = "No Audio Devices";
+"bluetooth.connectDevice" = "Connect a Bluetooth headset or speaker";
 
 // MARK: - HUD Settings
 "hud.style" = "Style";
@@ -288,25 +252,6 @@
 "nowPlaying.settings.showAlbum" = "Show Album";
 "nowPlaying.settings.showAppIcon" = "Show App Icon";
 
-// MARK: - Git Settings (additional, for ones not yet localized)
-"git.settings.autoDetect" = "Auto-detect Repository";
-"git.settings.autoDetect.subtitle" = "Automatically detect the current Git repository";
-"git.settings.repositoryPath" = "Repository Path";
-"git.settings.repositoryPath.subtitle" = "Path to the Git repository to monitor";
-"git.settings.showCIStatus" = "Show CI Status";
-"git.settings.showCIStatus.subtitle" = "Display GitHub Actions workflow status";
-"git.settings.gitHubToken" = "GitHub Token (Optional)";
-"git.settings.gitHubToken.subtitle" = "For private repositories";
-"git.settings.showUncommittedCount" = "Show Uncommitted Count";
-"git.settings.showUncommittedCount.subtitle" = "Display the number of uncommitted files";
-"git.settings.refreshInterval.subtitle" = "How often to check for Git status changes";
-"git.settings.ciFailureNotifications" = "CI Failure Notifications";
-"git.settings.ciFailureNotifications.subtitle" = "Show notification when CI fails";
-"git.settings.section.repository" = "Repository";
-"git.settings.section.ci" = "CI/CD";
-"git.settings.section.display" = "Display";
-"git.settings.section.notifications" = "Notifications";
-
 // MARK: - About
 "settings.about.checkForUpdates" = "Check for Updates";
 "settings.about.versionFormat" = "Version %@";
@@ -317,6 +262,7 @@
 "calendar.loading" = "Loading...";
 "calendar.authorizationRequired" = "Calendar access required";
 "calendar.authorize" = "Authorize";
+"calendar.openSettings" = "Open System Settings";
 "calendar.settings.daysToShow" = "Days to Show";
 "calendar.settings.daysToShow.subtitle" = "Number of days to show events for";
 "calendar.settings.maxEvents" = "Max Events";
@@ -330,6 +276,11 @@
 "calendar.settings.section.reminders" = "Reminders";
 "calendar.settings.section.sync" = "Sync";
 "calendar.settings.section.permissions" = "Permissions";
+"calendar.settings.section.notch" = "Collapsed Notch";
+"calendar.settings.showInNotch" = "Show in Collapsed Notch";
+"calendar.settings.showInNotch.subtitle" = "Display next upcoming event in the notch when collapsed";
+"calendar.events" = "Events";
+"calendar.reminders" = "Reminders";
 
 // MARK: - System Monitor
 "systemMonitor.cpu" = "CPU";
@@ -346,6 +297,9 @@
 "systemMonitor.settings.showNetwork.subtitle" = "Display network speed";
 "systemMonitor.settings.refreshInterval.subtitle" = "How often to update system data";
 "systemMonitor.settings.section.display" = "Display";
+"systemMonitor.settings.section.notch" = "Collapsed Notch";
+"systemMonitor.settings.showInNotch" = "Show in Collapsed Notch";
+"systemMonitor.settings.showInNotch.subtitle" = "Display CPU and memory bars in the notch when collapsed";
 
 // MARK: - Timer
 "timer.work" = "Working";

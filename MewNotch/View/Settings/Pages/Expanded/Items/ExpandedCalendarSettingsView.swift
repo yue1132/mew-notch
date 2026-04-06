@@ -71,6 +71,19 @@ struct ExpandedCalendarSettingsView: View {
 
             Section {
                 SettingsRow(
+                    title: "calendar.settings.showInNotch".localized,
+                    subtitle: "calendar.settings.showInNotch.subtitle".localized,
+                    icon: Image(systemName: "menubar.rectangle"),
+                    color: .cyan
+                ) {
+                    Toggle("", isOn: $calendarDefaults.showInNotch)
+                }
+            } header: {
+                Text("calendar.settings.section.notch".localized)
+            }
+
+            Section {
+                SettingsRow(
                     title: "common.refreshInterval".localized,
                     subtitle: "calendar.settings.refreshInterval.subtitle".localized,
                     icon: Image(systemName: "arrow.clockwise"),

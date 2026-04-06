@@ -113,11 +113,16 @@ class BluetoothManager: ObservableObject {
                         NSLog("[BT] Device: '%@' minorType=%@ services=%@", deviceName, properties["device_minorType"] as? String ?? "nil", properties["device_services"] as? String ?? "nil")
 
                         if isAudioDevice(properties) {
+                            let batteryMain = parseBattery(properties["device_batteryLevelMain"] as? String)
+                            let batteryCase = parseBattery(properties["device_batteryLevelCase"] as? String)
+
                             let model = BluetoothDeviceModel(
                                 name: deviceName,
                                 address: properties["device_address"] as? String,
                                 minorType: properties["device_minorType"] as? String,
-                                services: properties["device_services"] as? String
+                                services: properties["device_services"] as? String,
+                                batteryLevelMain: batteryMain,
+                                batteryLevelCase: batteryCase
                             )
                             devices.append(model)
                         }
@@ -144,5 +149,13 @@ class BluetoothManager: ObservableObject {
         }
 
         return false
+    }
+
+    private func parseBattery(_ value: String?) -> Int? {
+        guard let value = value else { return nil }
+        // system_profiler returns battery as "75%" or just "75"
+        let digits = value.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+        guard let level = Int(digits), level >= 0, level <= 100 else { return nil }
+        return level
     }
 }

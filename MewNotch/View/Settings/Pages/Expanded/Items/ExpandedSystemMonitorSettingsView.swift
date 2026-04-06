@@ -67,6 +67,19 @@ struct ExpandedSystemMonitorSettingsView: View {
             } header: {
                 Text("common.behavior".localized)
             }
+
+            Section {
+                SettingsRow(
+                    title: "systemMonitor.settings.showInNotch".localized,
+                    subtitle: "systemMonitor.settings.showInNotch.subtitle".localized,
+                    icon: Image(systemName: "menubar.rectangle"),
+                    color: .cyan
+                ) {
+                    Toggle("", isOn: $defaults.showInNotch)
+                }
+            } header: {
+                Text("systemMonitor.settings.section.notch".localized)
+            }
         }
         .formStyle(.grouped)
     }

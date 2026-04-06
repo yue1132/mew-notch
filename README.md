@@ -41,6 +41,10 @@
 - **Now Playing** - Control now playing media directly from notch. Expand notch for additional controls.
 - **Mirror** - Get a quick peek on how you're looking by using the mirror in expanded notch. Now with customizable corner radius.
 - **Bash Script View** - Run and display bash commands directly in the expanded notch.
+- **System Monitor** - Real-time CPU, memory, and network usage in expanded notch with hover-to-show top processes. Collapsed notch shows CPU (left) and memory (right) percentages with symmetric layout.
+- **Calendar & Reminders** - Display today's events and upcoming reminders from Apple Calendar/Reminders in the expanded notch. Countdown to next event shown in collapsed notch HUD.
+- **Timer & Pomodoro** - Countdown timer and Pomodoro mode displayed in collapsed notch HUD with pause/resume controls.
+- **Bluetooth** - View connected Bluetooth devices with battery info in expanded notch.
 - **Custom Layout** - Reorder notch items to suit your workflow.
 - **Auto Updates** - Built-in updater (Sparkle) to keep your app always up to date.
 - **Modern Settings UI** - Completely redesigned settings experience for easier customization.
@@ -111,6 +115,7 @@ This command simply removes the "quarantine" flag that macOS places on apps down
 - [x] ~~Persist Shelf Files across restarts~~
 - [ ] Making shelf work with **Show on Lockscreen** enabled (Currently mutually exclusive for security).
 - [ ] HUD for displaying keyboard backlight changes.
+- [ ] Explore additional notch-based utilities.
 - [ ] Explore additional notch-based utilities.
 
 ## Dependency

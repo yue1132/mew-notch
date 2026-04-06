@@ -36,38 +36,69 @@ class CalendarManager: ObservableObject {
     // MARK: - Authorization
 
     func checkAuthorization() {
-        let calendarStatus = EKEventStore.authorizationStatus(for: .event)
+        let eventStatus = EKEventStore.authorizationStatus(for: .event)
+        let reminderStatus = EKEventStore.authorizationStatus(for: .reminder)
 
-        isAuthorized = calendarStatus == .fullAccess || calendarStatus == .authorized
+        NSLog("[Calendar] Event auth: %d, Reminder auth: %d", eventStatus.rawValue, reminderStatus.rawValue)
 
-        if isAuthorized {
+        let eventAuthorized = eventStatus == .fullAccess || eventStatus == .authorized
+        let reminderAuthorized = reminderStatus == .fullAccess || reminderStatus == .authorized
+
+        DispatchQueue.main.async {
+            self.isAuthorized = eventAuthorized || reminderAuthorized
+        }
+
+        if eventAuthorized || reminderAuthorized {
             refreshData()
         }
     }
 
-    func requestAccess() async -> Bool {
-        // Request calendar access
-        let calendarGranted = await withCheckedContinuation { continuation in
-            if #available(macOS 14.0, *) {
-                eventStore.requestFullAccessToEvents { granted, _ in
-                    continuation.resume(returning: granted)
+    var eventAuthStatus: EKAuthorizationStatus {
+        EKEventStore.authorizationStatus(for: .event)
+    }
+
+    var reminderAuthStatus: EKAuthorizationStatus {
+        EKEventStore.authorizationStatus(for: .reminder)
+    }
+
+    func requestAccess() {
+        NSLog("[Calendar] Requesting access...")
+
+        if #available(macOS 14.0, *) {
+            eventStore.requestFullAccessToEvents { [weak self] granted, error in
+                NSLog("[Calendar] Event access granted: %d, error: %@", granted, error?.localizedDescription ?? "none")
+                self?.requestReminderAccess()
+            }
+        } else {
+            eventStore.requestAccess(to: .event) { [weak self] granted, error in
+                NSLog("[Calendar] Event access granted: %d, error: %@", granted, error?.localizedDescription ?? "none")
+                self?.requestReminderAccess()
+            }
+        }
+    }
+
+    private func requestReminderAccess() {
+        if #available(macOS 14.0, *) {
+            eventStore.requestFullAccessToReminders { [weak self] granted, error in
+                NSLog("[Calendar] Reminder access granted: %d, error: %@", granted, error?.localizedDescription ?? "none")
+                DispatchQueue.main.async {
+                    self?.checkAuthorization()
                 }
-            } else {
-                eventStore.requestAccess(to: .event) { granted, _ in
-                    continuation.resume(returning: granted)
+            }
+        } else {
+            eventStore.requestAccess(to: .reminder) { [weak self] granted, error in
+                NSLog("[Calendar] Reminder access granted: %d, error: %@", granted, error?.localizedDescription ?? "none")
+                DispatchQueue.main.async {
+                    self?.checkAuthorization()
                 }
             }
         }
+    }
 
-        await MainActor.run {
-            self.isAuthorized = calendarGranted
+    func openPrivacySettings() {
+        if let url = URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_Calendars") {
+            NSWorkspace.shared.open(url)
         }
-
-        if calendarGranted {
-            refreshData()
-        }
-
-        return calendarGranted
     }
 
     // MARK: - Monitoring
@@ -119,7 +150,6 @@ class CalendarManager: ObservableObject {
         let calendar = Calendar.current
         let now = Date()
 
-        // Determine date range based on settings
         let daysToShow = calendarDefaults.daysToShow
         let startDate = calendar.startOfDay(for: now)
         guard let endDate = calendar.date(byAdding: .day, value: daysToShow, to: startDate) else { return }
@@ -127,11 +157,12 @@ class CalendarManager: ObservableObject {
         let predicate = eventStore.predicateForEvents(withStart: startDate, end: endDate, calendars: calendars)
         let events = eventStore.events(matching: predicate)
 
-        // Sort by start date and filter
         let sortedEvents = events
             .filter { !$0.isAllDay || calendarDefaults.showAllDay }
             .sorted { $0.startDate < $1.startDate }
             .prefix(calendarDefaults.maxEventsToShow)
+
+        NSLog("[Calendar] Fetched %d events", sortedEvents.count)
 
         let eventModels = sortedEvents.map { event -> CalendarEventModel in
             var codableColor: CodableColor? = nil
@@ -150,7 +181,8 @@ class CalendarManager: ObservableObject {
                 endDate: event.endDate,
                 isAllDay: event.isAllDay,
                 calendarName: event.calendar?.title,
-                calendarColor: codableColor
+                calendarColor: codableColor,
+                eventIdentifier: event.eventIdentifier
             )
         }
 
@@ -173,6 +205,8 @@ class CalendarManager: ObservableObject {
 
         eventStore.fetchReminders(matching: predicate) { reminders in
             guard let reminders = reminders else { return }
+
+            NSLog("[Calendar] Fetched %d reminders", reminders.count)
 
             let reminderModels = reminders
                 .sorted { ($0.dueDateComponents?.date ?? Date.distantFuture) < ($1.dueDateComponents?.date ?? Date.distantFuture) }
@@ -197,6 +231,17 @@ class CalendarManager: ObservableObject {
     func openCalendarApp() {
         if let url = URL(string: "ical://") {
             NSWorkspace.shared.open(url)
+        }
+    }
+
+    func openEvent(identifier: String) {
+        if let event = eventStore.event(withIdentifier: identifier) {
+            let url = URL(string: "ical://\(event.eventIdentifier)") ?? URL(string: "ical://")
+            if let url {
+                NSWorkspace.shared.open(url)
+            }
+        } else {
+            openCalendarApp()
         }
     }
 

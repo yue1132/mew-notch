@@ -76,8 +76,6 @@ struct ExpandedItemsSettingsView: View {
                         ExpandedBashSettingsView()
                     case .Bluetooth:
                         ExpandedBluetoothSettingsView()
-                    case .GitStatus:
-                        ExpandedGitStatusSettingsView()
                     case .Calendar:
                         ExpandedCalendarSettingsView()
                     case .SystemMonitor:

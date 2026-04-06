@@ -46,37 +46,39 @@ final class NowPlaying {
     }
     
     var nowPlayingModel: NowPlayingMediaModel? {
-        guard let appBundleIdentifier = NowPlaying.shared.appBundleIdentifier,
-              let appName = NowPlaying.shared.appName,
-              let appIcon = NowPlaying.shared.appIcon,
-              let album = NowPlaying.shared.album,
-              let artist = NowPlaying.shared.artist,
-              let title = NowPlaying.shared.title,
-              let elapsedTime = NowPlaying.shared.elapsedTime,
-              let totalDuration = NowPlaying.shared.totalDuration,
-              let playbackRate = NowPlaying.shared.playbackRate,
-              let refreshedAt = NowPlaying.shared.refreshedAt else {
+        guard let title = NowPlaying.shared.title else {
             return nil
         }
-        
+
+        let bundleId = NowPlaying.shared.appBundleIdentifier ?? ""
+
+        let appIcon: Image = {
+            if let nsImage = NowPlaying.shared.appIcon {
+                return Image(nsImage: nsImage)
+            }
+            return Image(systemName: "music.note")
+        }()
+
+        let appName = NowPlaying.shared.appName ?? "Media"
+
         var albumArt: Image? = nil
         if let nsAlbumArt = NowPlaying.shared.albumArt {
             albumArt = .init(nsImage: nsAlbumArt)
         }
-        
+
         return NowPlayingMediaModel(
-            appBundleIdentifier: appBundleIdentifier,
+            appBundleIdentifier: bundleId,
             appName: appName,
-            appIcon: .init(nsImage: appIcon),
+            appIcon: appIcon,
             albumArt: albumArt,
-            album: album,
-            artist: artist,
+            album: NowPlaying.shared.album ?? "",
+            artist: NowPlaying.shared.artist ?? "",
             title: title,
-            elapsedTime: elapsedTime,
-            totalDuration: totalDuration,
-            playbackRate: playbackRate,
+            elapsedTime: NowPlaying.shared.elapsedTime ?? 0,
+            totalDuration: NowPlaying.shared.totalDuration ?? 0,
+            playbackRate: NowPlaying.shared.playbackRate ?? 1.0,
             isPlaying: playing,
-            refreshedAt: refreshedAt
+            refreshedAt: NowPlaying.shared.refreshedAt ?? .now
         )
     }
     
@@ -179,10 +181,16 @@ final class NowPlaying {
         guard let payload = update.dictionaryValue["payload"]?.dictionaryValue else {
             return
         }
-        
+
         defer {
             NotificationCenter.default.post(name: .NowPlayingInfo, object: nil)
         }
+
+        NSLog("[NowPlaying] Received update: title=%@ artist=%@ album=%@ playing=%@",
+              payload[PayloadItem.title.rawValue]?.stringValue ?? "nil",
+              payload[PayloadItem.artist.rawValue]?.stringValue ?? "nil",
+              payload[PayloadItem.album.rawValue]?.stringValue ?? "nil",
+              payload[PayloadItem.playing.rawValue]?.boolValue.description ?? "nil")
         
         playing = payload[PayloadItem.playing.rawValue]?.boolValue ?? false
         

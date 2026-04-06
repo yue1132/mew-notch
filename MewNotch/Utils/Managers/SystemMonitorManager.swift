@@ -21,6 +21,8 @@ class SystemMonitorManager: ObservableObject {
     @Published var networkDownloadSpeed: Double = 0
     @Published var networkUploadSpeed: Double = 0
 
+    @Published var topProcesses: [AppProcessInfo] = []
+
     @Published var isRefreshing: Bool = false
 
     private var timer: Timer?
@@ -60,6 +62,9 @@ class SystemMonitorManager: ObservableObject {
 
     // MARK: - Refresh
 
+    /// Whether to include expensive operations like top processes
+    var includeDetails: Bool = false
+
     func refresh() {
         DispatchQueue.main.async {
             self.isRefreshing = true
@@ -87,6 +92,9 @@ class SystemMonitorManager: ObservableObject {
                 (downloadSpeed, uploadSpeed) = self.getNetworkSpeed()
             }
 
+            // Only fetch top processes when expanded view needs them
+            let procs = self.includeDetails ? self.getTopProcesses() : self.topProcesses
+
             DispatchQueue.main.async {
                 self.cpuUsage = cpu
                 self.memoryUsed = memUsed
@@ -94,6 +102,7 @@ class SystemMonitorManager: ObservableObject {
                 self.memoryPercentage = memTotal > 0 ? Double(memUsed) / Double(memTotal) * 100 : 0
                 self.networkDownloadSpeed = downloadSpeed
                 self.networkUploadSpeed = uploadSpeed
+                self.topProcesses = procs
                 self.isRefreshing = false
             }
         }
@@ -238,5 +247,57 @@ class SystemMonitorManager: ObservableObject {
     func updateRefreshInterval(_ interval: Double) {
         stopMonitoring()
         startMonitoring()
+    }
+
+    // MARK: - Top Processes
+
+    struct AppProcessInfo: Identifiable {
+        let id = UUID()
+        let name: String
+        let cpuUsage: Double
+        let memPercent: Double
+
+        var memoryMB: Double {
+            let totalMem = Double(ProcessInfo.processInfo.physicalMemory)
+            return memPercent * totalMem / 1_073_741_824.0 / 100.0
+        }
+    }
+
+    private func getTopProcesses() -> [AppProcessInfo] {
+        let task = Process()
+        let pipe = Pipe()
+        task.standardOutput = pipe
+        task.arguments = ["-c", "ps -arcwwwxo \"%cpu %mem comm\" | head -4"]
+        task.executableURL = URL(fileURLWithPath: "/bin/bash")
+
+        do {
+            try task.run()
+            let data = pipe.fileHandleForReading.readDataToEndOfFile()
+            let output = String(data: data, encoding: .utf8) ?? ""
+            task.waitUntilExit()
+
+            var results: [AppProcessInfo] = []
+            let lines = output.components(separatedBy: "\n").dropFirst()
+
+            for line in lines {
+                let parts = line.trimmingCharacters(in: .whitespaces).split(separator: " ", omittingEmptySubsequences: true)
+                guard parts.count >= 3,
+                      let cpu = Double(parts[0]),
+                      let mem = Double(parts[1]) else { continue }
+
+                let name = parts[2...].joined(separator: " ")
+                if !name.isEmpty {
+                    results.append(AppProcessInfo(
+                        name: name,
+                        cpuUsage: cpu,
+                        memPercent: mem
+                    ))
+                }
+            }
+
+            return Array(results.prefix(3))
+        } catch {
+            return []
+        }
     }
 }

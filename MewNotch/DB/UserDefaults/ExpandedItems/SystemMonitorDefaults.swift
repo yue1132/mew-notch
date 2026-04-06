@@ -46,4 +46,13 @@ class SystemMonitorDefaults: ObservableObject {
             objectWillChange.send()
         }
     }
+
+    // MARK: - Collapsed Notch
+
+    @AppStorage(PREFIX + "showInNotch")
+    var showInNotch: Bool = false {
+        didSet {
+            objectWillChange.send()
+        }
+    }
 }

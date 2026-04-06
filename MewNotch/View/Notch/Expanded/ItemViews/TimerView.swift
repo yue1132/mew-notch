@@ -14,24 +14,22 @@ struct TimerView: View {
     @StateObject private var timerDefaults = TimerDefaults.shared
 
     @State private var selectedDuration: TimeInterval = 300
+    @State private var isTimeHovered: Bool = false
 
     var body: some View {
         VStack(spacing: 4) {
             // Progress bar
             progressView
 
-            // Time display
+            // Time display with hover controls overlay
             timeView
 
-            // Duration or Pomodoro
-            if !timerManager.isRunning && !timerManager.isPaused {
-                durationSelector
-            } else if timerManager.mode == .pomodoro {
-                pomodoroDots
+            // Pomodoro dots (when running in pomodoro mode)
+            if timerManager.isRunning || timerManager.isPaused {
+                if timerManager.mode == .pomodoro {
+                    pomodoroDots
+                }
             }
-
-            // Buttons
-            controlButtons
         }
         .padding(8)
         .frame(width: notchViewModel.notchSize.width)
@@ -58,6 +56,67 @@ struct TimerView: View {
             Text(timerManager.phaseText)
                 .font(.system(size: 9))
                 .foregroundColor(.gray)
+        }
+        .frame(maxWidth: .infinity)
+        .blur(radius: isTimeHovered ? 4.0 : 0)
+        .animation(MewAnimation.fade, value: isTimeHovered)
+        .overlay {
+            if isTimeHovered {
+                hoverControls
+                    .transition(.opacity.combined(with: .scale(scale: 0.9)))
+            }
+        }
+        .onHover { isHovered in
+            isTimeHovered = isHovered
+        }
+    }
+
+    private var hoverControls: some View {
+        VStack(spacing: 6) {
+            // Main controls row
+            HStack(spacing: 12) {
+                // Reset
+                btn(icon: "arrow.counterclockwise", size: 10, color: .gray) {
+                    timerManager.reset()
+                }
+                .opacity(timerManager.isRunning || timerManager.isPaused ? 1 : 0.3)
+
+                // Play/Pause
+                Button {
+                    if timerManager.isRunning { timerManager.pause() }
+                    else if timerManager.isPaused { timerManager.resume() }
+                    else {
+                        if timerManager.mode == .pomodoro {
+                            timerManager.startPomodoro()
+                        } else {
+                            timerManager.startCountdown(duration: selectedDuration)
+                        }
+                    }
+                } label: {
+                    Image(systemName: timerManager.isRunning ? "pause.fill" : "play.fill")
+                        .font(.system(size: 14))
+                        .foregroundColor(.white)
+                        .frame(width: 40, height: 40)
+                        .background(Circle().fill(Color.blue))
+                }
+                .buttonStyle(.plain)
+
+                // Mode
+                btn(
+                    icon: timerManager.mode == .pomodoro ? "flame.fill" : "timer",
+                    size: 10,
+                    color: timerManager.mode == .pomodoro ? .red : .blue
+                ) {
+                    timerManager.reset()
+                    timerManager.mode = timerManager.mode == .countdown ? .pomodoro : .countdown
+                }
+                .opacity(timerManager.isRunning || timerManager.isPaused ? 0.3 : 1)
+            }
+
+            // Duration selector (only when not running)
+            if !timerManager.isRunning && !timerManager.isPaused {
+                durationSelector
+            }
         }
     }
 
@@ -96,47 +155,6 @@ struct TimerView: View {
                     .fill(i < timerManager.pomodoroCount ? .red : Color.gray.opacity(0.3))
                     .frame(width: 6, height: 6)
             }
-        }
-    }
-
-    private var controlButtons: some View {
-        HStack(spacing: 12) {
-            // Reset
-            btn(icon: "arrow.counterclockwise", size: 10, color: .gray) {
-                timerManager.reset()
-            }
-            .opacity(timerManager.isRunning || timerManager.isPaused ? 1 : 0.3)
-
-            // Play/Pause
-            Button {
-                if timerManager.isRunning { timerManager.pause() }
-                else if timerManager.isPaused { timerManager.resume() }
-                else {
-                    if timerManager.mode == .pomodoro {
-                        timerManager.startPomodoro()
-                    } else {
-                        timerManager.startCountdown(duration: selectedDuration)
-                    }
-                }
-            } label: {
-                Image(systemName: timerManager.isRunning ? "pause.fill" : "play.fill")
-                    .font(.system(size: 14))
-                    .foregroundColor(.white)
-                    .frame(width: 40, height: 40)
-                    .background(Circle().fill(Color.blue))
-            }
-            .buttonStyle(.plain)
-
-            // Mode
-            btn(
-                icon: timerManager.mode == .pomodoro ? "flame.fill" : "timer",
-                size: 10,
-                color: timerManager.mode == .pomodoro ? .red : .blue
-            ) {
-                timerManager.reset()
-                timerManager.mode = timerManager.mode == .countdown ? .pomodoro : .countdown
-            }
-            .opacity(timerManager.isRunning || timerManager.isPaused ? 0.3 : 1)
         }
     }
 

@@ -87,7 +87,6 @@
 "item.nowPlaying" = "正在播放";
 "item.bash" = "Bash 命令";
 "item.bluetooth" = "蓝牙设备";
-"item.gitStatus" = "Git & CI 状态";
 "item.calendar" = "日历";
 "item.systemMonitor" = "系统监控";
 "item.timer" = "计时器";
@@ -124,43 +123,8 @@
 "bluetooth.connectionNotifications" = "连接通知";
 "bluetooth.connectionNotifications.subtitle" = "设备连接/断开时显示通知";
 "bluetooth.section.notifications" = "通知";
-
-// MARK: - Git Status
-"git.noRepository" = "无活跃仓库";
-"git.openProject" = "打开项目文件夹";
-"git.error" = "错误";
-"git.loading" = "扫描中...";
-"git.refreshing" = "刷新中...";
-"git.scanHint" = "在设置中添加扫描路径";
-"git.autoDetect" = "自动检测仓库";
-"git.autoDetect.subtitle" = "自动检测当前 Git 仓库";
-"git.repositoryPath" = "仓库路径";
-"git.repositoryPath.subtitle" = "要监控的 Git 仓库路径";
-"git.showCIStatus" = "显示 CI 状态";
-"git.showCIStatus.subtitle" = "显示 GitHub Actions 工作流状态";
-"git.githubToken" = "GitHub Token（可选）";
-"git.githubToken.subtitle" = "用于私有仓库";
-"git.showUncommittedCount" = "显示未提交数量";
-"git.showUncommittedCount.subtitle" = "显示未提交文件的数量";
-"git.refreshInterval" = "刷新间隔";
-"git.refreshInterval.subtitle" = "检查 Git 状态变化的频率";
-"git.ciFailureNotifications" = "CI 失败通知";
-"git.ciFailureNotifications.subtitle" = "CI 失败时显示通知";
-"git.section.repository" = "仓库";
-"git.section.ci" = "CI/CD";
-"git.section.display" = "显示";
-"git.section.notifications" = "通知";
-"git.section.discovery" = "仓库发现";
-"git.settings.scanPaths" = "扫描路径";
-"git.settings.scanPathPlaceholder" = "~/路径";
-"git.settings.addPath" = "添加";
-"git.settings.scanDepth" = "扫描深度";
-"git.settings.scanDepth.subtitle" = "扫描仓库的目录深度";
-"git.settings.maxRepos" = "最大仓库数";
-"git.settings.maxRepos.subtitle" = "最多显示的活跃仓库数量";
-"git.settings.activityThreshold" = "活跃阈值";
-"git.settings.activityThreshold.subtitle" = "仅显示此时间内有活动的仓库";
-"git.settings.days" = "天";
+"bluetooth.noDevices" = "无音频设备";
+"bluetooth.connectDevice" = "连接蓝牙耳机或扬声器";
 
 // MARK: - HUD Settings
 "hud.style" = "样式";
@@ -288,25 +252,6 @@
 "nowPlaying.settings.showAlbum" = "显示专辑";
 "nowPlaying.settings.showAppIcon" = "显示应用图标";
 
-// MARK: - Git Settings (additional, for ones not yet localized)
-"git.settings.autoDetect" = "自动检测仓库";
-"git.settings.autoDetect.subtitle" = "自动检测当前 Git 仓库";
-"git.settings.repositoryPath" = "仓库路径";
-"git.settings.repositoryPath.subtitle" = "要监控的 Git 仓库路径";
-"git.settings.showCIStatus" = "显示 CI 状态";
-"git.settings.showCIStatus.subtitle" = "显示 GitHub Actions 工作流状态";
-"git.settings.gitHubToken" = "GitHub Token（可选）";
-"git.settings.gitHubToken.subtitle" = "用于私有仓库";
-"git.settings.showUncommittedCount" = "显示未提交数量";
-"git.settings.showUncommittedCount.subtitle" = "显示未提交文件的数量";
-"git.settings.refreshInterval.subtitle" = "检查 Git 状态变化的频率";
-"git.settings.ciFailureNotifications" = "CI 失败通知";
-"git.settings.ciFailureNotifications.subtitle" = "CI 失败时显示通知";
-"git.settings.section.repository" = "仓库";
-"git.settings.section.ci" = "CI/CD";
-"git.settings.section.display" = "显示";
-"git.settings.section.notifications" = "通知";
-
 // MARK: - About
 "settings.about.checkForUpdates" = "检查更新";
 "settings.about.versionFormat" = "版本 %@";
@@ -317,6 +262,7 @@
 "calendar.loading" = "加载中...";
 "calendar.authorizationRequired" = "需要日历访问权限";
 "calendar.authorize" = "授权访问";
+"calendar.openSettings" = "打开系统设置";
 "calendar.settings.daysToShow" = "显示天数";
 "calendar.settings.daysToShow.subtitle" = "显示未来多少天的日程";
 "calendar.settings.maxEvents" = "最大事件数";
@@ -330,6 +276,12 @@
 "calendar.settings.section.reminders" = "提醒事项";
 "calendar.settings.section.sync" = "同步";
 "calendar.settings.section.permissions" = "权限";
+"calendar.settings.section.notch" = "收起态刘海";
+"calendar.settings.showInNotch" = "在收起态显示";
+"calendar.settings.showInNotch.subtitle" = "收起时在刘海中显示下一个即将到来的事件";
+"calendar.settings.showReminders.subtitle" = "同时显示待办提醒";
+"calendar.events" = "日程";
+"calendar.reminders" = "提醒事项";
 
 // MARK: - System Monitor
 "systemMonitor.cpu" = "CPU";
@@ -346,6 +298,9 @@
 "systemMonitor.settings.showNetwork.subtitle" = "显示网络速度";
 "systemMonitor.settings.refreshInterval.subtitle" = "更新系统数据的频率";
 "systemMonitor.settings.section.display" = "显示";
+"systemMonitor.settings.section.notch" = "收起态刘海";
+"systemMonitor.settings.showInNotch" = "在收起态显示";
+"systemMonitor.settings.showInNotch.subtitle" = "收起时在刘海中显示 CPU 和内存使用率条";
 
 // MARK: - Timer
 "timer.work" = "工作中";

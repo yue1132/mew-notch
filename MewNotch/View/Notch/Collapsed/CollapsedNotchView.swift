@@ -18,6 +18,15 @@ struct CollapsedNotchView: View {
     @StateObject var collapsedNotchViewModel: CollapsedNotchViewModel = .init()
     
     @StateObject var notchDefaults = NotchDefaults.shared
+
+    @StateObject private var timerManager = TimerManager.shared
+    @StateObject private var calendarManager = CalendarManager.shared
+    @StateObject private var calendarDefaults = CalendarDefaults.shared
+
+    /// Show calendar HUD when enabled
+    private var showCalendarHUD: Bool {
+        calendarDefaults.showInNotch
+    }
     
     @StateObject var mediaDefaults = HUDMediaDefaults.shared
     
@@ -26,8 +35,11 @@ struct CollapsedNotchView: View {
             spacing: 0
         ) {
             HStack(
-                spacing: 0
+                spacing: 2
             ) {
+                Spacer()
+                    .frame(width: 6)
+
                 MinimalHUDLeftView(
                     notchViewModel: notchViewModel,
                     defaults: HUDBrightnessDefaults.shared,
@@ -63,15 +75,34 @@ struct CollapsedNotchView: View {
                     when: notchViewModel.isExpanded
                 )
 
+                // System monitor CPU (left side, outermost)
+                SystemMonitorHUDLeftView(notchViewModel: notchViewModel)
+
                 // Timer icon on left side of notch
                 TimerHUDLeftView(notchViewModel: notchViewModel)
+
+                // Calendar countdown (left side, innermost)
+                CalendarHUDLeftView(notchViewModel: notchViewModel)
+
+                Spacer()
+                    .frame(width: 8)
 
                 OnlyNotchView(
                     notchSize: notchViewModel.notchSize
                 )
 
+                Spacer()
+                    .frame(width: 8)
+
+                // Calendar event title (right side, innermost)
+                CalendarHUDRightView(notchViewModel: notchViewModel)
+                    .opacity(showCalendarHUD ? 1 : 0)
+
                 // Timer time on right side of notch
                 TimerHUDRightView(notchViewModel: notchViewModel)
+
+                // System monitor Memory (right side, outermost)
+                SystemMonitorHUDRightView(notchViewModel: notchViewModel)
 
                 NowPlayingHUDRightView(
                     notchViewModel: notchViewModel,
@@ -111,6 +142,9 @@ struct CollapsedNotchView: View {
                     defaults: HUDBrightnessDefaults.shared,
                     hudModel: collapsedNotchViewModel.brightnessHUD
                 )
+
+                Spacer()
+                    .frame(width: 6)
             }
             
             PowerHUDView(
