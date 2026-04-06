@@ -20,6 +20,10 @@
 
 <br/>
 
+English | [中文](README_zh-CN.md)
+
+<br/>
+
 <a href="https://github.com/monuk7735/mew-notch/releases"><img src=".github/res/macOS-Download.png" width="160" alt="Download for macOS"/></a>
 
 <br/>
@@ -115,7 +119,6 @@ This command simply removes the "quarantine" flag that macOS places on apps down
 - [x] ~~Persist Shelf Files across restarts~~
 - [ ] Making shelf work with **Show on Lockscreen** enabled (Currently mutually exclusive for security).
 - [ ] HUD for displaying keyboard backlight changes.
-- [ ] Explore additional notch-based utilities.
 - [ ] Explore additional notch-based utilities.
 
 ## Dependency
