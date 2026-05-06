@@ -43,7 +43,7 @@ struct AboutAppView: View {
                 Button(action: {
                     updaterViewModel.checkForUpdates()
                 }) {
-                    Text("Check for Updates")
+                    Text(String(localized: "check_for_updates"))
                         .font(.system(size: 13, weight: .medium))
                         .frame(maxWidth: 160)
                 }
@@ -55,7 +55,7 @@ struct AboutAppView: View {
                         NSWorkspace.shared.open(url)
                     }
                 }) {
-                    Text("View on GitHub")
+                    Text(String(localized: "view_on_github"))
                         .font(.system(size: 13, weight: .medium))
                         .frame(maxWidth: 160)
                 }

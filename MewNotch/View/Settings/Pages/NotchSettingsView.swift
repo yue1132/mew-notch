@@ -105,7 +105,7 @@ struct NotchSettingsView: View {
                 }
                 
             } header: {
-                Text("Displays")
+                Text(LocalizedStringResource("displays"))
             }
             
             Section {
@@ -133,7 +133,7 @@ struct NotchSettingsView: View {
                     }
                 }
             } header: {
-                Text("Interface")
+                Text(LocalizedStringResource("interface"))
             }
             
             Section {
@@ -177,7 +177,7 @@ struct NotchSettingsView: View {
                     Toggle("", isOn: $notchDefaults.hapticFeedback)
                 }
             } header: {
-                Text("Interaction")
+                Text(LocalizedStringResource("interaction"))
             }
         }
         .formStyle(.grouped)

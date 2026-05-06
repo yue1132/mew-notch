@@ -72,7 +72,7 @@ struct FileShelfView: View {
                             .font(.system(size: 24))
                             .foregroundStyle(.white.opacity(0.7))
                         
-                        Text("Drop Files Here")
+                        Text(LocalizedStringResource("drop_files_here"))
                             .font(.system(size: 13, weight: .medium, design: .rounded))
                             .foregroundStyle(.white.opacity(0.7))
                     }
@@ -146,7 +146,7 @@ struct AirDropView: View {
                     .foregroundStyle(.white)
                     .scaleEffect(isHovered || isTargeted ? 1.1 : 1.0)
                 
-                Text("AirDrop")
+                Text(LocalizedStringResource("airdrop"))
                     .font(.system(size: 11, weight: .medium))
                     .foregroundStyle(.white.opacity(0.8))
             }

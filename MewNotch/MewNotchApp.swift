@@ -18,7 +18,8 @@ struct MewNotchApp: App {
     @Environment(\.openSettings) private var openSettings
     
     @StateObject private var updaterViewModel: UpdaterViewModel = .shared
-    
+    @StateObject private var languageManager = LanguageManager.shared
+
     @ObservedObject private var appDefaults = AppDefaults.shared
     
     @State private var isMenuShown: Bool = true
@@ -72,6 +73,7 @@ struct MewNotchApp: App {
         Settings {
             MewSettingsView()
                 .modelContainer(sharedModelContainer)
+                .environment(\.locale, languageManager.currentLocale)
         }
         .windowResizability(.contentSize)
     }

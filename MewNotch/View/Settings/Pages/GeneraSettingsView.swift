@@ -12,7 +12,9 @@ struct GeneraSettingsView: View {
     
     @StateObject var appDefaults = AppDefaults.shared
     @StateObject var notchDefaults = NotchDefaults.shared
-    
+    @StateObject var languageDefaults = LanguageDefaults.shared
+    @StateObject var languageManager = LanguageManager.shared
+
     var body: some View {
         Form {
             Section {
@@ -36,8 +38,24 @@ struct GeneraSettingsView: View {
                 ) {
                     Toggle("", isOn: $appDefaults.showMenuIcon)
                 }
+
+                SettingsRow(
+                    title: "Language",
+                    subtitle: "Choose display language",
+                    icon: MewNotch.Assets.icLanguage,
+                    color: MewNotch.Colors.language
+                ) {
+                    Picker("", selection: $languageDefaults.languageCode) {
+                        Text("English").tag("en")
+                        Text("中文").tag("zh-CN")
+                    }
+                    .labelsHidden()
+                    .onChange(of: languageDefaults.languageCode) { _, newValue in
+                        languageManager.updateLocale(languageCode: newValue)
+                    }
+                }
             } header: {
-                Text("App")
+                Text(LocalizedStringResource("app"))
             }
             
             Section {
@@ -80,7 +98,7 @@ struct GeneraSettingsView: View {
                     .padding(.leading, 44) // Indent to align with text
                 }
             } header: {
-                Text("System")
+                Text(LocalizedStringResource("system"))
             }
         }
         .formStyle(.grouped)

@@ -86,7 +86,7 @@ struct MirrorView: View {
                                 )
                             )
                         
-                        Text("Mirror")
+                        Text(LocalizedStringResource("mirror"))
                             .font(.system(size: 10, weight: .medium, design: .rounded))
                             .foregroundStyle(.white.opacity(0.6))
                     }
@@ -100,11 +100,11 @@ struct MirrorView: View {
                         .frame(height: 16)
                         .foregroundStyle(.secondary)
                     
-                    Text("Mirror")
+                    Text(LocalizedStringResource("mirror"))
                         .font(.system(size: 10, weight: .bold, design: .rounded))
                         .foregroundStyle(.white)
-                    
-                    Text(cameraAuthStatus == .notDetermined ? "Tap to Allow Camera" : "Camera Access Required")
+
+                    Text(cameraAuthStatus == .notDetermined ? String(localized: "tap_to_allow_camera") : String(localized: "camera_access_required"))
                         .font(.system(size: 8))
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)

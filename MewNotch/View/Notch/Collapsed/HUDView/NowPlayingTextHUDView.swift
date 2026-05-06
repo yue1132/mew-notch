@@ -16,7 +16,7 @@ struct NowPlayingTextHUDView: View {
             VStack(
                 spacing: 0
             ) {
-                Text("Now Playing")
+                Text(LocalizedStringResource("now_playing"))
                     .font(.caption)
                     .foregroundColor(.secondary)
                 

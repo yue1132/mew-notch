@@ -37,12 +37,12 @@ struct MewSettingsView: View {
                     Section(
                         content: {
                             NavigationLink(destination: GeneraSettingsView()) {
-                                SettingsSidebarRow(title: "General", icon: MewNotch.Assets.icGeneral, color: MewNotch.Colors.general)
+                                SettingsSidebarRow(title: String(localized: "general"), icon: MewNotch.Assets.icGeneral, color: MewNotch.Colors.general)
                             }
                             .id(SettingsPages.General)
                             
                             NavigationLink(destination: NotchSettingsView()) {
-                                SettingsSidebarRow(title: "Notch", icon: MewNotch.Assets.icNotch, color: MewNotch.Colors.notch)
+                                SettingsSidebarRow(title: String(localized: "notch"), icon: MewNotch.Assets.icNotch, color: MewNotch.Colors.notch)
                             }
                             .id(SettingsPages.Notch)
                         }
@@ -53,23 +53,23 @@ struct MewSettingsView: View {
                     Section(
                         content: {
                             NavigationLink(destination: CollapsedItemsSettingsView()) {
-                                SettingsSidebarRow(title: "Collapsed", icon: MewNotch.Assets.icHud, color: MewNotch.Colors.hud)
+                                SettingsSidebarRow(title: String(localized: "collapsed"), icon: MewNotch.Assets.icHud, color: MewNotch.Colors.hud)
                             }
                             .id(SettingsPages.CollapsedItems)
                             
                             NavigationLink(destination: ExpandedItemsSettingsView()) {
-                                SettingsSidebarRow(title: "Expanded", icon: MewNotch.Assets.icMedia, color: MewNotch.Colors.nowPlaying)
+                                SettingsSidebarRow(title: String(localized: "expanded"), icon: MewNotch.Assets.icMedia, color: MewNotch.Colors.nowPlaying)
                             }
                             .id(SettingsPages.ExpandedItems)
                         },
                         header: {
-                            Text("Notch Items")
+                            Text(LocalizedStringResource("notch_items"))
                         }
                     )
                     
                     Section {
                         NavigationLink(destination: AboutAppView()) {
-                            SettingsSidebarRow(title: "About", icon: MewNotch.Assets.icAbout, color: MewNotch.Colors.about)
+                            SettingsSidebarRow(title: String(localized: "about"), icon: MewNotch.Assets.icAbout, color: MewNotch.Colors.about)
                         }
                         .id(SettingsPages.About)
                     }

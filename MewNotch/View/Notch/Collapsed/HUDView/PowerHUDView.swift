@@ -37,7 +37,7 @@ struct PowerHUDView<T: HUDDefaultsProtocol>: View {
                         +
                         Text(min > 0 ? "m " : "")
                         +
-                        Text("Left")
+                        Text(LocalizedStringResource("left"))
                     )
                 } else {
                     Text(

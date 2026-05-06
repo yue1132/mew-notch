@@ -88,6 +88,23 @@ class MewNotch {
         static let icStatusIcon = Image(systemName: "menubar.rectangle")
         static let icDisableSystemHud = Image(systemName: "eye.slash.fill")
         static let icWarning = Image(systemName: "exclamationmark.triangle.fill")
+        static let icLanguage = Image(systemName: "globe")
+
+        // Productivity Icons
+        static let icTeleprompter = Image(systemName: "text.alignleft")
+        static let icTodoReminder = Image(systemName: "checklist")
+        static let icTimerWidget = Image(systemName: "timer")
+        static let icPomodoroWidget = Image(systemName: "clock.fill")
+        static let icCalendarWidget = Image(systemName: "calendar")
+        static let icScript = Image(systemName: "doc.text.fill")
+        static let icClipboard = Image(systemName: "clipboard.fill")
+        static let icPlay = Image(systemName: "play.fill")
+        static let icPause = Image(systemName: "pause.fill")
+        static let icSkip = Image(systemName: "forward.fill")
+        static let icFocus = Image(systemName: "brain.head.profile")
+        static let icBreak = Image(systemName: "cup.and.saucer.fill")
+        static let icEvent = Image(systemName: "calendar.badge.clock")
+        static let icLocation = Image(systemName: "location.fill")
     }
     
     class Colors {
@@ -124,6 +141,14 @@ class MewNotch {
         static let autoBrightness = IconColor.green
         static let systemHud = IconColor.red
         static let video = IconColor.purple
+        static let language = IconColor.cyan
+
+        // Productivity Colors
+        static let teleprompter = IconColor.cyan
+        static let todoReminder = IconColor.green
+        static let timerWidget = IconColor.orange
+        static let pomodoroWidget = IconColor.red
+        static let calendarWidget = IconColor.blue
     }
     
     class Lotties {

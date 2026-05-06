@@ -1,0 +1,312 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "general" : {
+      "localizations" : {
+        "en" : "General",
+        "zh-CN" : "通用"
+      }
+    },
+    "notch" : {
+      "localizations" : {
+        "en" : "Notch",
+        "zh-CN" : "凹口"
+      }
+    },
+    "notch_items" : {
+      "localizations" : {
+        "en" : "Notch Items",
+        "zh-CN" : "凹口项"
+      }
+    },
+    "collapsed" : {
+      "localizations" : {
+        "en" : "Collapsed",
+        "zh-CN" : "折叠"
+      }
+    },
+    "expanded" : {
+      "localizations" : {
+        "en" : "Expanded",
+        "zh-CN" : "展开"
+      }
+    },
+    "about" : {
+      "localizations" : {
+        "en" : "About",
+        "zh-CN" : "关于"
+      }
+    },
+    "app" : {
+      "localizations" : {
+        "en" : "App",
+        "zh-CN" : "应用"
+      }
+    },
+    "system" : {
+      "localizations" : {
+        "en" : "System",
+        "zh-CN" : "系统"
+      }
+    },
+    "displays" : {
+      "localizations" : {
+        "en" : "Displays",
+        "zh-CN" : "显示器"
+      }
+    },
+    "interface" : {
+      "localizations" : {
+        "en" : "Interface",
+        "zh-CN" : "界面"
+      }
+    },
+    "interaction" : {
+      "localizations" : {
+        "en" : "Interaction",
+        "zh-CN" : "交互"
+      }
+    },
+    "launch_at_login" : {
+      "localizations" : {
+        "en" : "Launch at Login",
+        "zh-CN" : "登录时启动"
+      }
+    },
+    "launch_at_login_subtitle" : {
+      "localizations" : {
+        "en" : "Automatically start MewNotch when you log in",
+        "zh-CN" : "登录时自动启动 MewNotch"
+      }
+    },
+    "status_icon" : {
+      "localizations" : {
+        "en" : "Status Icon",
+        "zh-CN" : "状态图标"
+      }
+    },
+    "status_icon_subtitle" : {
+      "localizations" : {
+        "en" : "Show icon in menu bar for easy access",
+        "zh-CN" : "在菜单栏显示图标便于访问"
+      }
+    },
+    "language" : {
+      "localizations" : {
+        "en" : "Language",
+        "zh-CN" : "语言"
+      }
+    },
+    "language_subtitle" : {
+      "localizations" : {
+        "en" : "Choose display language",
+        "zh-CN" : "选择显示语言"
+      }
+    },
+    "english" : {
+      "localizations" : {
+        "en" : "English",
+        "zh-CN" : "英文"
+      }
+    },
+    "chinese" : {
+      "localizations" : {
+        "en" : "中文",
+        "zh-CN" : "中文"
+      }
+    },
+    "disable_system_hud" : {
+      "localizations" : {
+        "en" : "Disable System HUD",
+        "zh-CN" : "禁用系统 HUD"
+      }
+    },
+    "disable_system_hud_subtitle" : {
+      "localizations" : {
+        "en" : "Hide system volume and brightness overlays",
+        "zh-CN" : "隐藏系统音量和亮度覆盖层"
+      }
+    },
+    "accessibility_required" : {
+      "localizations" : {
+        "en" : "Accessibility permissions are required.",
+        "zh-CN" : "需要辅助功能权限。"
+      }
+    },
+    "open_system_settings" : {
+      "localizations" : {
+        "en" : "Open System Settings",
+        "zh-CN" : "打开系统设置"
+      }
+    },
+    "show_notch_on" : {
+      "localizations" : {
+        "en" : "Show Notch On",
+        "zh-CN" : "凹口显示位置"
+      }
+    },
+    "choose_display" : {
+      "localizations" : {
+        "en" : "Choose Displays to show notch on",
+        "zh-CN" : "选择显示凹口的显示器"
+      }
+    },
+    "show_on_lock_screen" : {
+      "localizations" : {
+        "en" : "Show on Lock Screen",
+        "zh-CN" : "在锁屏显示"
+      }
+    },
+    "show_on_lock_screen_subtitle" : {
+      "localizations" : {
+        "en" : "Incompatible with File Shelf feature",
+        "zh-CN" : "与文件架功能不兼容"
+      }
+    },
+    "hide_on_full_screen" : {
+      "localizations" : {
+        "en" : "Hide on Full Screen",
+        "zh-CN" : "全屏时隐藏"
+      }
+    },
+    "hide_on_full_screen_subtitle" : {
+      "localizations" : {
+        "en" : "Hides the notch when a full screen app is detected",
+        "zh-CN" : "检测到全屏应用时隐藏凹口"
+      }
+    },
+    "reset_view_on_collapse" : {
+      "localizations" : {
+        "en" : "Reset View on Collapse",
+        "zh-CN" : "折叠时重置视图"
+      }
+    },
+    "reset_view_on_collapse_subtitle_true" : {
+      "localizations" : {
+        "en" : "Notch resets to Home when Collapsed",
+        "zh-CN" : "折叠时凹口重置到主页"
+      }
+    },
+    "reset_view_on_collapse_subtitle_false" : {
+      "localizations" : {
+        "en" : "Notch will retain state when Collapsed",
+        "zh-CN" : "折叠时凹口保持状态"
+      }
+    },
+    "height" : {
+      "localizations" : {
+        "en" : "Height",
+        "zh-CN" : "高度"
+      }
+    },
+    "apply_glass_effect" : {
+      "localizations" : {
+        "en" : "Apply Glass Effect",
+        "zh-CN" : "应用玻璃效果"
+      }
+    },
+    "apply_glass_effect_subtitle" : {
+      "localizations" : {
+        "en" : "Forces 'Expand on Hover' to be enabled",
+        "zh-CN" : "强制启用悬停展开"
+      }
+    },
+    "expand_on_hover" : {
+      "localizations" : {
+        "en" : "Expand on Hover",
+        "zh-CN" : "悬停展开"
+      }
+    },
+    "expand_on_hover_subtitle" : {
+      "localizations" : {
+        "en" : "Expand notch when hovered.\nDisables click interactions in all HUDs.",
+        "zh-CN" : "悬停时展开凹口。\n禁用所有 HUD 的点击交互。"
+      }
+    },
+    "hover_delay" : {
+      "localizations" : {
+        "en" : "Hover Delay",
+        "zh-CN" : "悬停延迟"
+      }
+    },
+    "hover_delay_subtitle" : {
+      "localizations" : {
+        "en" : "seconds.",
+        "zh-CN" : "秒。"
+      }
+    },
+    "haptic_feedback" : {
+      "localizations" : {
+        "en" : "Haptic Feedback",
+        "zh-CN" : "触觉反馈"
+      }
+    },
+    "haptic_feedback_subtitle" : {
+      "localizations" : {
+        "en" : "Play haptic feedback when hovering over the notch",
+        "zh-CN" : "悬停凹口时播放触觉反馈"
+      }
+    },
+    "left" : {
+      "localizations" : {
+        "en" : "Left",
+        "zh-CN" : "剩余"
+      }
+    },
+    "drop_files_here" : {
+      "localizations" : {
+        "en" : "Drop Files Here",
+        "zh-CN" : "拖放文件至此"
+      }
+    },
+    "airdrop" : {
+      "localizations" : {
+        "en" : "AirDrop",
+        "zh-CN" : "AirDrop"
+      }
+    },
+    "mirror" : {
+      "localizations" : {
+        "en" : "Mirror",
+        "zh-CN" : "镜像"
+      }
+    },
+    "tap_to_allow_camera" : {
+      "localizations" : {
+        "en" : "Tap to Allow Camera",
+        "zh-CN" : "点击允许摄像头"
+      }
+    },
+    "camera_access_required" : {
+      "localizations" : {
+        "en" : "Camera Access Required",
+        "zh-CN" : "需要摄像头访问权限"
+      }
+    },
+    "now_playing" : {
+      "localizations" : {
+        "en" : "Now Playing",
+        "zh-CN" : "正在播放"
+      }
+    },
+    "check_for_updates" : {
+      "localizations" : {
+        "en" : "Check for Updates",
+        "zh-CN" : "检查更新"
+      }
+    },
+    "view_on_github" : {
+      "localizations" : {
+        "en" : "View on GitHub",
+        "zh-CN" : "在 GitHub 查看"
+      }
+    },
+    "version" : {
+      "localizations" : {
+        "en" : "Version",
+        "zh-CN" : "版本"
+      }
+    }
+  },
+  "version" : "1.0"
+}
