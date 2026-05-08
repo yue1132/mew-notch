@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
     <channel>
         <title>MewNotch Updates</title>
-        <link>https://monuk7735.github.io/mew-notch/sparkle/appcast.xml</link>
+        <link>https://yue1132.github.io/mew-notch/sparkle/appcast.xml</link>
         <description>Most recent changes with links to updates.</description>
         <language>en</language>
         <item>
@@ -24,7 +24,7 @@
                     <li>添加授权按钮悬停提示</li>
                 </ul>
             ]]></description>
-            <enclosure url="https://github.com/monuk7735/mew-notch/releases/download/v2.3.1/MewNotch-2.3.1.dmg" sparkle:edSignature="KGcPcAdHIn451exwQ5H1o/17Op88Tzj+TtHCnLCUbg0=" length="0" type="application/octet-stream"/>
+            <enclosure url="https://github.com/yue1132/mew-notch/releases/download/v2.3.1/MewNotch-2.3.1.dmg" sparkle:edSignature="KGcPcAdHIn451exwQ5H1o/17Op88Tzj+TtHCnLCUbg0=" length="0" type="application/octet-stream"/>
         </item>
         <item>
             <title>Version 2.3.0</title>
@@ -50,7 +50,7 @@
                     <li>完善中文翻译</li>
                 </ul>
             ]]></description>
-            <enclosure url="https://github.com/monuk7735/mew-notch/releases/download/v2.3.0/MewNotch-2.3.0.dmg" sparkle:edSignature="KGcPcAdHIn451exwQ5H1o/17Op88Tzj+TtHCnLCUbg0=" length="0" type="application/octet-stream"/>
+            <enclosure url="https://github.com/yue1132/mew-notch/releases/download/v2.3.0/MewNotch-2.3.0.dmg" sparkle:edSignature="KGcPcAdHIn451exwQ5H1o/17Op88Tzj+TtHCnLCUbg0=" length="0" type="application/octet-stream"/>
         </item>
     </channel>
 </rss>
