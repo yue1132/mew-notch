@@ -15,21 +15,21 @@ struct HUDPowerSettingsView: View {
         Form {
             Section {
                 SettingsRow(
-                    title: "Enabled",
-                    subtitle: "Shows power state when plugged in/out",
+                    title: "enabled",
+                    subtitle: "shows_power_state",
                     icon: MewNotch.Assets.icPower,
                     color: MewNotch.Colors.power
                 ) {
                     Toggle("", isOn: ~$powerDefaults.isEnabled)
                 }
             } header: {
-                Text("General")
+                Text("general")
             }
-                
+
             Section {
                 SettingsRow(
-                    title: "Show Time Remaining",
-                    subtitle: "Displays estimated time remaining on battery",
+                    title: "show_time_remaining",
+                    subtitle: "shows_time_remaining",
                     icon: MewNotch.Assets.icTimer,
                     color: MewNotch.Colors.timer
                 ) {
@@ -37,11 +37,11 @@ struct HUDPowerSettingsView: View {
                 }
                 .hide(when: !powerDefaults.isEnabled)
             } header: {
-                Text("Details")
+                Text("details")
             }
         }
         .formStyle(.grouped)
-        .navigationTitle("Power")
+        .navigationTitle("power")
     }
 }
 

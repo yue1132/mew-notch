@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel>
+        <title>MewNotch Updates</title>
+        <link>https://monuk7735.github.io/mew-notch/sparkle/appcast.xml</link>
+        <description>Most recent changes with links to updates.</description>
+        <language>en</language>
+        <item>
+            <title>Version 2.2.1</title>
+            <pubDate>2026-05-08</pubDate>
+            <sparkle:version>221</sparkle:version>
+            <sparkle:shortVersionString>2.2.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>新增功能</h2>
+                <ul>
+                    <li>多语言支持（中文/英文）</li>
+                    <li>番茄钟实时倒计时显示</li>
+                    <li>番茄钟折叠状态集成到刘海</li>
+                    <li>日历集成功能</li>
+                    <li>提词器功能</li>
+                    <li>待办事项提醒</li>
+                    <li>计时器功能</li>
+                </ul>
+                <h2>改进</h2>
+                <ul>
+                    <li>优化折叠状态下的 HUD 显示</li>
+                    <li>改进展开视图的宽度限制</li>
+                    <li>完善中文翻译</li>
+                </ul>
+            ]]></description>
+            <enclosure url="https://github.com/monuk7735/mew-notch/releases/download/v2.2.1/MewNotch-2.2.1.zip" sparkle:edSignature="KGcPcAdHIn451exwQ5H1o/17Op88Tzj+TtHCnLCUbg0=" length="0" type="application/octet-stream"/>
+        </item>
+    </channel>
+</rss>

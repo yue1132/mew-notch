@@ -15,21 +15,21 @@ struct HUDMediaSettingsView: View {
         Form {
             Section {
                 SettingsRow(
-                    title: "Enabled",
-                    subtitle: "Shows media playing app with animation",
+                    title: "enabled",
+                    subtitle: "shows_media_playing",
                     icon: MewNotch.Assets.icMedia,
                     color: MewNotch.Colors.nowPlaying
                 ) {
                     Toggle("", isOn: ~$mediaDefaults.isEnabled)
                 }
             } header: {
-                Text("General")
+                Text("general")
             }
-                
+
             Section {
                 SettingsRow(
-                    title: "Animated",
-                    subtitle: "Animate value changes",
+                    title: "animated",
+                    subtitle: "animate_value_changes",
                     icon: MewNotch.Assets.icVideo,
                     color: MewNotch.Colors.video
                 ) {
@@ -37,22 +37,22 @@ struct HUDMediaSettingsView: View {
                 }
                 .hide(when: !mediaDefaults.isEnabled)
             } header: {
-                Text("Appearance")
+                Text("appearance")
             }
-                
+
             Section {
                 SettingsRow(
-                    title: "Show title on change",
-                    subtitle: "Shows new media name on change",
+                    title: "show_title_on_change",
+                    subtitle: "shows_new_media_name",
                     icon: MewNotch.Assets.icMedia,
                     color: MewNotch.Colors.nowPlaying
                 ) {
                     Toggle("", isOn: ~$mediaDefaults.showTitleChange)
                 }
                 .hide(when: !mediaDefaults.isEnabled)
-                
+
                 SettingsRow(
-                    title: "Show new title for",
+                    title: "show_new_title_for",
                     subtitle: "\(mediaDefaults.titleChangeTimeout.formatted()) seconds",
                     icon: MewNotch.Assets.icTimer,
                     color: MewNotch.Colors.timer
@@ -65,11 +65,11 @@ struct HUDMediaSettingsView: View {
                 }
                 .hide(when: !mediaDefaults.isEnabled || !mediaDefaults.showTitleChange)
             } header: {
-                Text("Behavior")
+                Text("behavior")
             }
         }
         .formStyle(.grouped)
-        .navigationTitle("Media")
+        .navigationTitle("media")
     }
 }
 

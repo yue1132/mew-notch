@@ -19,8 +19,8 @@ struct GeneraSettingsView: View {
         Form {
             Section {
                 SettingsRow(
-                    title: "Launch at Login",
-                    subtitle: "Automatically start MewNotch when you log in",
+                    title: "launch_at_login",
+                    subtitle: "launch_at_login_subtitle",
                     icon: MewNotch.Assets.icLaunchAtLogin,
                     color: MewNotch.Colors.style
                 ) {
@@ -29,10 +29,10 @@ struct GeneraSettingsView: View {
                     }
                     .labelsHidden()
                 }
-                
+
                 SettingsRow(
-                    title: "Status Icon",
-                    subtitle: "Show icon in menu bar for easy access",
+                    title: "status_icon",
+                    subtitle: "status_icon_subtitle",
                     icon: MewNotch.Assets.icStatusIcon,
                     color: MewNotch.Colors.general
                 ) {
@@ -40,14 +40,14 @@ struct GeneraSettingsView: View {
                 }
 
                 SettingsRow(
-                    title: "Language",
-                    subtitle: "Choose display language",
+                    title: "language",
+                    subtitle: "language_subtitle",
                     icon: MewNotch.Assets.icLanguage,
                     color: MewNotch.Colors.language
                 ) {
                     Picker("", selection: $languageDefaults.languageCode) {
-                        Text("English").tag("en")
-                        Text("中文").tag("zh-CN")
+                        Text("english").tag("en")
+                        Text("chinese").tag("zh-CN")
                     }
                     .labelsHidden()
                     .onChange(of: languageDefaults.languageCode) { _, newValue in
@@ -57,11 +57,11 @@ struct GeneraSettingsView: View {
             } header: {
                 Text(LocalizedStringResource("app"))
             }
-            
+
             Section {
                 SettingsRow(
-                    title: "Disable System HUD",
-                    subtitle: "Hide system volume and brightness overlays",
+                    title: "disable_system_hud",
+                    subtitle: "disable_system_hud_subtitle",
                     icon: MewNotch.Assets.icDisableSystemHud,
                     color: MewNotch.Colors.systemHud
                 ) {
@@ -78,18 +78,18 @@ struct GeneraSettingsView: View {
                             }
                         }
                 }
-                
+
                 if appDefaults.disableSystemHUD && !AXIsProcessTrusted() {
                     VStack(alignment: .leading, spacing: 8) {
                         Label {
-                            Text("Accessibility permissions are required.")
+                            Text("accessibility_required")
                         } icon: {
                             MewNotch.Assets.icWarning
                         }
                             .font(.caption)
                             .foregroundStyle(.red)
-                        
-                        Button("Open System Settings") {
+
+                        Button("open_system_settings") {
                             let options = [kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String: true]
                             AXIsProcessTrustedWithOptions(options as CFDictionary)
                         }
@@ -102,7 +102,7 @@ struct GeneraSettingsView: View {
             }
         }
         .formStyle(.grouped)
-        .navigationTitle("General")
+        .navigationTitle("general")
     }
 }
 

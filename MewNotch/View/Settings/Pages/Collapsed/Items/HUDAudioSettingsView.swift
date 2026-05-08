@@ -15,20 +15,20 @@ struct HUDAudioSettingsView: View {
         Form {
             Section {
                 SettingsRow(
-                    title: "Enabled",
-                    subtitle: "Shows volume changes",
+                    title: "enabled",
+                    subtitle: "shows_volume_changes",
                     icon: MewNotch.Assets.icSpeakerWave2,
                     color: MewNotch.Colors.output
                 ) {
                     Toggle("", isOn: ~$viewModel.outputDefaults.isEnabled)
                 }
             } header: {
-                Text("Output General")
+                Text("output_general")
             }
                 
             Section {
                 SettingsRow(
-                    title: "Style",
+                    title: "style",
                     icon: MewNotch.Assets.icPaintbrush,
                     color: MewNotch.Colors.style
                 ) {
@@ -40,10 +40,10 @@ struct HUDAudioSettingsView: View {
                     .labelsHidden()
                 }
                 .hide(when: !viewModel.outputDefaults.isEnabled)
-                
+
                 SettingsRow(
-                    title: "Animated",
-                    subtitle: "Animate value changes",
+                    title: "animated",
+                    subtitle: "animate_value_changes",
                     icon: MewNotch.Assets.icVideo,
                     color: MewNotch.Colors.video
                 ) {
@@ -51,7 +51,7 @@ struct HUDAudioSettingsView: View {
                 }
                 .hide(when: !viewModel.outputDefaults.isEnabled || viewModel.outputDefaults.style != .Minimal)
             } header: {
-                Text("Output Appearance")
+                Text("output_appearance")
             }
                 
             Section {
@@ -74,20 +74,20 @@ struct HUDAudioSettingsView: View {
             
             Section {
                 SettingsRow(
-                    title: "Enabled",
-                    subtitle: "Shows volume changes",
+                    title: "enabled",
+                    subtitle: "shows_volume_changes",
                     icon: MewNotch.Assets.icMicrophone,
                     color: MewNotch.Colors.input
                 ) {
                     Toggle("", isOn: ~$viewModel.inputDefaults.isEnabled)
                 }
             } header: {
-                Text("Input General")
+                Text("input_general")
             }
                 
             Section {
                 SettingsRow(
-                    title: "Style",
+                    title: "style",
                     icon: MewNotch.Assets.icPaintbrush,
                     color: MewNotch.Colors.style
                 ) {
@@ -99,10 +99,10 @@ struct HUDAudioSettingsView: View {
                     .labelsHidden()
                 }
                 .hide(when: !viewModel.inputDefaults.isEnabled)
-                
+
                 SettingsRow(
-                    title: "Animated",
-                    subtitle: "Animate value changes",
+                    title: "animated",
+                    subtitle: "animate_value_changes",
                     icon: MewNotch.Assets.icVideo,
                     color: MewNotch.Colors.video
                 ) {
@@ -110,11 +110,11 @@ struct HUDAudioSettingsView: View {
                 }
                 .hide(when: !viewModel.inputDefaults.isEnabled || viewModel.inputDefaults.style != .Minimal)
             } header: {
-                Text("Input Appearance")
+                Text("input_appearance")
             }
         }
         .formStyle(.grouped)
-        .navigationTitle("Audio")
+        .navigationTitle("audio")
     }
 }
 

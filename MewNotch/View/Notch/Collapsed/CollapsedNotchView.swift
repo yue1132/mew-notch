@@ -62,11 +62,15 @@ struct CollapsedNotchView: View {
                 .hide(
                     when: notchViewModel.isExpanded
                 )
-                
+
+                PomodoroLeftHUDView(notchViewModel: notchViewModel)
+
                 OnlyNotchView(
                     notchSize: notchViewModel.notchSize
                 )
-                
+
+                PomodoroRightHUDView(notchViewModel: notchViewModel)
+
                 NowPlayingHUDRightView(
                     notchViewModel: notchViewModel,
                     nowPlayingModel: collapsedNotchViewModel.nowPlayingMedia
@@ -112,7 +116,7 @@ struct CollapsedNotchView: View {
                 defaults: HUDPowerDefaults.shared,
                 hudModel: collapsedNotchViewModel.powerStatusHUD
             )
-            
+
             AudioDeviceHUDView(
                 notchViewModel: notchViewModel,
                 deviceType: .Input,

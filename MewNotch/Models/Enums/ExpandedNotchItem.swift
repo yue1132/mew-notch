@@ -10,11 +10,16 @@ enum ExpandedNotchItem: String, CaseIterable, Codable, Identifiable {
     var id: String {
         self.rawValue
     }
-    
+
     case Mirror
     case NowPlaying
     case Bash
-    
+    case Teleprompter
+    case TodoReminder
+    case Timer
+    case Pomodoro
+    case Calendar
+
     var displayName: String {
         switch self {
         case .Mirror:
@@ -23,9 +28,19 @@ enum ExpandedNotchItem: String, CaseIterable, Codable, Identifiable {
             return "Now Playing"
         case .Bash:
             return "Bash Command"
+        case .Teleprompter:
+            return "Teleprompter"
+        case .TodoReminder:
+            return "Todo & Reminder"
+        case .Timer:
+            return "Timer"
+        case .Pomodoro:
+            return "Pomodoro"
+        case .Calendar:
+            return "Calendar"
         }
     }
-    
+
     var imageSystemName: String {
         switch self {
         case .Mirror:
@@ -34,6 +49,16 @@ enum ExpandedNotchItem: String, CaseIterable, Codable, Identifiable {
             return "music.note"
         case .Bash:
             return "terminal"
+        case .Teleprompter:
+            return "text.alignleft"
+        case .TodoReminder:
+            return "checklist"
+        case .Timer:
+            return "timer"
+        case .Pomodoro:
+            return "clock.fill"
+        case .Calendar:
+            return "calendar"
         }
     }
 }

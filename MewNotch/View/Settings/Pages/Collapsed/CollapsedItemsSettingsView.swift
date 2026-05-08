@@ -14,10 +14,10 @@ struct CollapsedItemsSettingsView: View {
     var body: some View {
         VStack(spacing: 0) {
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 12), count: 4), spacing: 12) {
-                HudTabButton(title: "Audio", icon: MewNotch.Assets.icAudio, tag: 0, selection: $selectedTab)
-                HudTabButton(title: "Brightness", icon: MewNotch.Assets.icBrightnessFill, tag: 1, selection: $selectedTab)
-                HudTabButton(title: "Power", icon: MewNotch.Assets.icPower, tag: 2, selection: $selectedTab)
-                HudTabButton(title: "Media", icon: MewNotch.Assets.icMedia, tag: 3, selection: $selectedTab)
+                HudTabButton(title: "audio", icon: MewNotch.Assets.icAudio, tag: 0, selection: $selectedTab)
+                HudTabButton(title: "brightness", icon: MewNotch.Assets.icBrightnessFill, tag: 1, selection: $selectedTab)
+                HudTabButton(title: "power", icon: MewNotch.Assets.icPower, tag: 2, selection: $selectedTab)
+                HudTabButton(title: "media", icon: MewNotch.Assets.icMedia, tag: 3, selection: $selectedTab)
             }
             .padding()
             
@@ -37,7 +37,7 @@ struct CollapsedItemsSettingsView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .navigationTitle("Collapsed Items Settings")
+        .navigationTitle("collapsed_items_settings")
         .toolbarTitleDisplayMode(.inline)
     }
 }
@@ -47,11 +47,11 @@ struct CollapsedItemsSettingsView: View {
 }
 
 struct HudTabButton: View {
-    let title: String
+    let title: LocalizedStringKey
     let icon: Image
     let tag: Int
     @Binding var selection: Int
-    
+
     var isSelected: Bool { selection == tag }
     
     var body: some View {

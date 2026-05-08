@@ -16,38 +16,38 @@ struct ExpandedNowPlayingSettingsView: View {
         Form {
             Section {
                 SettingsRow(
-                    title: "Corner Radius",
+                    title: "corner_radius",
                     icon: MewNotch.Assets.icCornerRadius,
                     color: MewNotch.Colors.albumArt
                 ) {
                     Slider(value: $nowPlayingDefaults.albumArtCornerRadius, in: 15...50, step: 1)
                 }
-                
+
                 SettingsRow(
-                    title: "Show Artist",
+                    title: "show_artist",
                     icon: MewNotch.Assets.icArtist,
                     color: MewNotch.Colors.artist
                 ) {
                     Toggle("", isOn: $nowPlayingDefaults.showArtist)
                 }
-                
+
                 SettingsRow(
-                    title: "Show Album",
+                    title: "show_album",
                     icon: MewNotch.Assets.icAlbumName,
                     color: MewNotch.Colors.albumName
                 ) {
                     Toggle("", isOn: $nowPlayingDefaults.showAlbum)
                 }
-                
+
                 SettingsRow(
-                    title: "Show App Icon",
+                    title: "show_app_icon",
                     icon: MewNotch.Assets.icAppIcon,
                     color: MewNotch.Colors.appIcon
                 ) {
                     Toggle("", isOn: $nowPlayingDefaults.showAppIcon)
                 }
             } header: {
-                Text("General Settings")
+                Text("general_settings")
             }
         }
         .formStyle(.grouped)

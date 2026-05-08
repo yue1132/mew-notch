@@ -21,7 +21,7 @@ struct NotchSettingsView: View {
         Form {
             Section {
                 SettingsRow(
-                    title: "Show Notch On",
+                    title: "show_notch_on",
                     icon: MewNotch.Assets.icDisplay,
                     color: MewNotch.Colors.notch
                 ) {
@@ -32,48 +32,14 @@ struct NotchSettingsView: View {
                     }
                     .labelsHidden()
                 }
-                
+
                 if notchDefaults.notchDisplayVisibility == .Custom {
-                    VStack(spacing: 8) {
-                        Text("Choose Displays to show notch on")
-                            .font(.body)
-                            .foregroundStyle(.secondary)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                        
-                        ScrollView(.horizontal) {
-                            LazyHStack(spacing: 12) {
-                                ForEach(viewModel.screens, id: \.self) { screen in
-                                    let isSelected = notchDefaults.shownOnDisplay[screen.localizedName] == true
-                                    Text(screen.localizedName)
-                                        .font(.subheadline)
-                                        .frame(minHeight: 50)
-                                        .padding(12)
-                                        .background(
-                                            RoundedRectangle(cornerRadius: 12)
-                                                .fill(isSelected ? Color.blue.opacity(0.15) : Color.gray.opacity(0.1))
-                                        )
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 12)
-                                                .stroke(isSelected ? Color.blue : Color.gray.opacity(0.3), lineWidth: 2)
-                                                .padding(1)
-                                        )
-                                        .onTapGesture {
-                                            let old = notchDefaults.shownOnDisplay[screen.localizedName] ?? false
-                                            withAnimation(.easeInOut(duration: 0.2)) {
-                                                notchDefaults.shownOnDisplay[screen.localizedName] = !old
-                                            }
-                                        }
-                                }
-                            }
-                            .padding(.vertical, 4)
-                        }
-                    }
-                    .padding(.vertical, 4)
+                    customDisplaySelector
                 }
-                
+
                 SettingsRow(
-                    title: "Show on Lock Screen",
-                    subtitle: "Incompatible with File Shelf feature",
+                    title: "show_on_lock_screen",
+                    subtitle: "show_on_lock_screen_subtitle",
                     icon: MewNotch.Assets.icLock,
                     color: MewNotch.Colors.lock
                 ) {
@@ -82,10 +48,10 @@ struct NotchSettingsView: View {
                             viewModel.refreshNotchesAndKillWindows()
                         }
                 }
-                
+
                 SettingsRow(
-                    title: "Hide on Full Screen",
-                    subtitle: "Hides the notch when a full screen app is detected",
+                    title: "hide_on_full_screen",
+                    subtitle: "hide_on_full_screen_subtitle",
                     icon: MewNotch.Assets.icDisplay,
                     color: MewNotch.Colors.notch
                 ) {
@@ -94,23 +60,23 @@ struct NotchSettingsView: View {
                             viewModel.refreshNotches()
                         }
                 }
-                
+
                 SettingsRow(
-                    title: "Reset View on Collapse",
-                    subtitle: notchDefaults.resetViewOnCollapse ? "Notch resets to Home when Collapsed" : "Notch will retain state when Collapsed",
+                    title: "reset_view_on_collapse",
+                    subtitle: notchDefaults.resetViewOnCollapse ? "reset_on_collapse_true" : "reset_on_collapse_false",
                     icon: MewNotch.Assets.icReset,
                     color: MewNotch.Colors.notch
                 ) {
                     Toggle("", isOn: $notchDefaults.resetViewOnCollapse)
                 }
-                
+
             } header: {
                 Text(LocalizedStringResource("displays"))
             }
             
             Section {
                 SettingsRow(
-                    title: "Height",
+                    title: "height",
                     icon: MewNotch.Assets.icHeight,
                     color: MewNotch.Colors.height
                 ) {
@@ -121,11 +87,11 @@ struct NotchSettingsView: View {
                     }
                     .labelsHidden()
                 }
-                
+
                 if #available(macOS 26.0, *) {
                     SettingsRow(
-                        title: "Apply Glass Effect",
-                        subtitle: "Forces 'Expand on Hover' to be enabled",
+                        title: "apply_glass_effect",
+                        subtitle: "glass_effect_subtitle",
                         icon: MewNotch.Assets.icGlass,
                         color: MewNotch.Colors.glass
                     ) {
@@ -138,8 +104,8 @@ struct NotchSettingsView: View {
             
             Section {
                 SettingsRow(
-                    title: "Expand on Hover",
-                    subtitle: "Expand notch when hovered.\nDisables click interactions in all HUDs.",
+                    title: "expand_on_hover",
+                    subtitle: "expand_on_hover_subtitle",
                     icon: MewNotch.Assets.icHover,
                     color: MewNotch.Colors.hover
                 ) {
@@ -153,9 +119,9 @@ struct NotchSettingsView: View {
                     ))
                 }
                 .disabled(notchDefaults.applyGlassEffect)
-                
+
                 SettingsRow(
-                    title: "Hover Delay",
+                    title: "hover_delay",
                     subtitle: "\(notchDefaults.expandOnHoverDelay.formatted()) seconds.\n",
                     icon: MewNotch.Assets.icTimer,
                     color: MewNotch.Colors.timer
@@ -169,8 +135,8 @@ struct NotchSettingsView: View {
                 .hide(when: !notchDefaults.expandOnHover && !notchDefaults.applyGlassEffect)
 
                 SettingsRow(
-                    title: "Haptic Feedback",
-                    subtitle: "Play haptic feedback when hovering over the notch",
+                    title: "haptic_feedback",
+                    subtitle: "haptic_feedback_subtitle",
                     icon: MewNotch.Assets.icHaptic,
                     color: MewNotch.Colors.haptic
                 ) {
@@ -181,13 +147,65 @@ struct NotchSettingsView: View {
             }
         }
         .formStyle(.grouped)
-        .navigationTitle("Notch")
+        .navigationTitle("notch")
         .toolbarTitleDisplayMode(.inline)
         .onChange(
             of: notchDefaults.shownOnDisplay
         ) { _, _ in
              viewModel.refreshNotches()
         }
+    }
+
+    @ViewBuilder
+    private var customDisplaySelector: some View {
+        VStack(spacing: 8) {
+            Text("choose_display")
+                .font(.body)
+                .foregroundStyle(.secondary)
+                .frame(maxWidth: .infinity, alignment: .leading)
+
+            ScrollView(.horizontal) {
+                LazyHStack(spacing: 12) {
+                    ForEach(viewModel.screens, id: \.self) { screen in
+                        DisplaySelectionButton(
+                            screen: screen,
+                            isSelected: notchDefaults.shownOnDisplay[screen.localizedName] == true,
+                            onTap: {
+                                let old = notchDefaults.shownOnDisplay[screen.localizedName] ?? false
+                                withAnimation(.easeInOut(duration: 0.2)) {
+                                    notchDefaults.shownOnDisplay[screen.localizedName] = !old
+                                }
+                            }
+                        )
+                    }
+                }
+                .padding(.vertical, 4)
+            }
+        }
+        .padding(.vertical, 4)
+    }
+}
+
+struct DisplaySelectionButton: View {
+    let screen: NSScreen
+    let isSelected: Bool
+    let onTap: () -> Void
+
+    var body: some View {
+        Text(screen.localizedName)
+            .font(.subheadline)
+            .frame(minHeight: 50)
+            .padding(12)
+            .background(
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(isSelected ? Color.blue.opacity(0.15) : Color.gray.opacity(0.1))
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: 12)
+                    .stroke(isSelected ? Color.blue : Color.gray.opacity(0.3), lineWidth: 2)
+                    .padding(1)
+            )
+            .onTapGesture(perform: onTap)
     }
 }
 

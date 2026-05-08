@@ -22,26 +22,26 @@ struct NotchOptionsView: View {
     var type: OptionsType = .ContextMenu
     
     var body: some View {
-        Button("Refresh Notch") {
+        Button("refresh_notch") {
             NotchManager.shared.refreshNotches(killAllWindows: true)
         }
-        
-        Button("Settings") {
+
+        Button("settings") {
             openSettings()
         }
         .keyboardShortcut(
             ",",
             modifiers: .command
         )
-        
-        Button("Quit") {
+
+        Button("quit") {
             AppManager.shared.kill()
         }
         .keyboardShortcut("R", modifiers: .command)
-        
+
         Divider()
-        
-        Button("Check for Updates...") {
+
+        Button("check_for_updates") {
             updaterViewModel.checkForUpdates()
         }
         .disabled(!updaterViewModel.canCheckForUpdates)

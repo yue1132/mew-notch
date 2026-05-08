@@ -71,6 +71,16 @@ struct ExpandedNotchView: View {
                         notchViewModel: notchViewModel,
                         expandedNotchViewModel: expandedNotchViewModel
                     )
+                case .Teleprompter:
+                    TeleprompterView(notchViewModel: notchViewModel)
+                case .TodoReminder:
+                    TodoReminderView(notchViewModel: notchViewModel)
+                case .Timer:
+                    TimerView(notchViewModel: notchViewModel)
+                case .Pomodoro:
+                    PomodoroView(notchViewModel: notchViewModel)
+                case .Calendar:
+                    CalendarView(notchViewModel: notchViewModel)
                 }
             }
         }
@@ -82,6 +92,7 @@ struct ExpandedNotchView: View {
                 trailing: 8 + notchViewModel.extraNotchPadSize.width / 2
             )
         )
+        .frame(maxWidth: expandedNotchViewModel.currentView == .Home ? nil : notchViewModel.screen.frame.width - 40)
         .scaleEffect(
             notchViewModel.isExpanded ? 1 : 0.3,
             anchor: .top

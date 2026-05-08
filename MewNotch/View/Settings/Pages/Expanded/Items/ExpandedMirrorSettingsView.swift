@@ -16,8 +16,8 @@ struct ExpandedMirrorSettingsView: View {
         Form {
             Section {
                 SettingsRow(
-                    title: "Corner Radius",
-                    subtitle: "Adjust the shape of the mirror",
+                    title: "corner_radius",
+                    subtitle: "corner_radius_subtitle",
                     icon: MewNotch.Assets.icCornerRadius,
                     color: MewNotch.Colors.mirror
                 ) {
@@ -28,20 +28,20 @@ struct ExpandedMirrorSettingsView: View {
                     )
                 }
             } header: {
-                Text("Mirror Appearance")
+                Text("mirror_appearance")
             }
-            
+
             Section {
                 SettingsRow(
-                    title: "Auto-Start Mirror",
-                    subtitle: "Automatically activate camera when notch is expanded",
+                    title: "auto_start_mirror",
+                    subtitle: "auto_start_mirror_subtitle",
                     icon: MewNotch.Assets.icVideo,
                     color: MewNotch.Colors.video
                 ) {
                     Toggle("", isOn: $mirrorDefaults.autoStart)
                 }
             } header: {
-                Text("Behavior")
+                Text("behavior")
             }
         }
         .formStyle(.grouped)

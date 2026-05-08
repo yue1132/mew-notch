@@ -1,0 +1,30 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LDOverride
+
+# Build
+build/
+DerivedData/
+*.xcarchive
+
+# Xcode
+*.xcodeproj/project.xcworkspace/
+*.xcodeproj/xcuserdata/
+
+# Temporary files
+*.zip
+*.swp
+*~.nib
+
+# CocoaPods
+Pods/
+
+# Carthage
+Carthage/Build/
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output

@@ -12,14 +12,14 @@ struct ExpandedItemsSettingsView: View {
             // Unified Header Section
             VStack(alignment: .leading, spacing: 8) {
                 HStack {
-                    Text("Manage and Order Items")
+                    Text("manage_and_order_items")
                         .font(.caption)
                         .foregroundStyle(.secondary)
-                    
+
                     Spacer()
-                    
+
                     HStack(spacing: 8) {
-                        Text("Show Separator")
+                        Text("show_separator")
                             .font(.caption)
                             .foregroundStyle(.secondary)
                         Toggle("", isOn: $notchDefaults.showDividers)
@@ -74,18 +74,28 @@ struct ExpandedItemsSettingsView: View {
                         ExpandedNowPlayingSettingsView()
                     case .Bash:
                         ExpandedBashSettingsView()
+                    case .Teleprompter:
+                        TeleprompterSettingsView()
+                    case .TodoReminder:
+                        TodoReminderSettingsView()
+                    case .Timer:
+                        TimerSettingsView()
+                    case .Pomodoro:
+                        PomodoroSettingsView()
+                    case .Calendar:
+                        CalendarSettingsView()
                     }
                 } else {
                     ContentUnavailableView(
-                        "Select an Item",
+                        "select_an_item",
                         systemImage: "arrow.up",
-                        description: Text("Select an item above to configure its settings.")
+                        description: Text("select_item_configure")
                     )
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .navigationTitle("Expanded Items")
+        .navigationTitle("expanded_items")
         .toolbarTitleDisplayMode(.inline)
 
     }

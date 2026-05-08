@@ -32,19 +32,30 @@
 
 ## Features
 
+### Core HUD Features
 - **Brightness Display** - Displays brightness adjustments in real-time, including optional auto-brightness changes and custom step sizes.
 - **Sound Level Display** - Shows input/output volume changes directly on the notch with customizable step sizes.
 - **System HUD Suppression** - Option to completely hide the stock macOS HUDs for a cleaner experience.
-- **File Shelf** - Drag and drop files to the notch for quick access. **Now with Persistence!** Files stay there even after restarts.
 - **Power State** - Show current power source. Toggle "Time Remaining" display for a cleaner look.
 - **Notch on Lock Screen** - The notch HUD is now visible even on the macOS lock screen.
 - **Now Playing** - Control now playing media directly from notch. Shows title changes automatically with customizable pop-up timeouts.
 - **Mirror** - Get a quick peek on how you're looking by using the mirror in expanded notch. Now with customizable corner radius.
 - **Bash Script View** - Run and display bash commands directly in the expanded notch.
+- **File Shelf** - Drag and drop files to the notch for quick access. Files stay there even after restarts.
+
+### Productivity Tools (New in v2.3.0)
+- **番茄钟 (Pomodoro Timer)** - Focus timer with work/break cycles. Shows countdown in collapsed notch (icon on left, time on right).
+- **日历 (Calendar)** - View today's events, ongoing meetings, and upcoming schedules.
+- **提词器 (Teleprompter)** - Import scripts for presentations with scrolling playback.
+- **待办事项 (Todo Reminder)** - Track tasks with overdue alerts, integrates with system reminders.
+- **计时器 (Timer)** - Custom countdown timers for any purpose.
+
+### Customization & UI
+- **多语言支持 (Multi-language)** - Full Chinese and English interface support (130+ translations).
 - **Customizable Interactions** - Tailor the notch exactly to your liking with adjustable hover expand delays and toggles for HUD animations.
 - **Custom Layout** - Reorder notch items to suit your workflow.
 - **Auto Updates** - Built-in updater (Sparkle) to keep your app always up to date.
-- **Modern Settings UI** - Completely grouped and redesigned settings experience for beautifully categorized configuration across all HUDs.
+- **Modern Settings UI** - Completely grouped and redesigned settings experience.
 - **Fully Custom Notch Experience** - Choose the displays you want to see the notch on.
 - **SwiftUI-based UI** - Smooth animations and modern macOS styling.
 
@@ -110,6 +121,8 @@ This command simply removes the "quarantine" flag that macOS places on apps down
 - [x] ~~Explore different options for Now Playing media support on macOS 15.4 and above.~~
 - [x] ~~Shelf for files in expanded notch view~~
 - [x] ~~Persist Shelf Files across restarts~~
+- [x] ~~Productivity tools: Pomodoro, Calendar, Teleprompter, Todo, Timer~~
+- [x] ~~Multi-language support (Chinese/English)~~
 - [ ] Making shelf work with **Show on Lockscreen** enabled (Currently mutually exclusive for security).
 - [ ] HUD for displaying keyboard backlight changes.
 - [ ] Explore additional notch-based utilities.

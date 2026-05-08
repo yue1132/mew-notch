@@ -23,14 +23,14 @@ struct NotchHomeView: View {
             spacing: 12
         ) {
             let items = notchDefaults.expandedNotchItems
-            
+
             ForEach(
                 0..<items.count,
                 id: \.self
             ) { index in
-                
+
                 let item = items[index]
-                
+
                 switch item {
                 case .Mirror:
                     MirrorView(
@@ -44,13 +44,28 @@ struct NotchHomeView: View {
                     )
                 case .Bash:
                     BashView(notchViewModel: notchViewModel)
+                case .Teleprompter:
+                    TeleprompterMiniView(notchViewModel: notchViewModel)
+                        .fixedSize()
+                case .TodoReminder:
+                    TodoReminderMiniView(notchViewModel: notchViewModel)
+                        .fixedSize()
+                case .Timer:
+                    TimerMiniView(notchViewModel: notchViewModel)
+                        .fixedSize()
+                case .Pomodoro:
+                    PomodoroMiniView(notchViewModel: notchViewModel)
+                        .fixedSize()
+                case .Calendar:
+                    CalendarMiniView(notchViewModel: notchViewModel)
+                        .fixedSize()
                 }
-                
+
                 if notchDefaults.showDividers && index != items.count - 1 {
                     Divider()
                 }
             }
-            
+
         }
         .frame(
             height: notchViewModel.notchSize.height * 3

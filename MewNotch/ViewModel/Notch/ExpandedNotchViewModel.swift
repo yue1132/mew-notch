@@ -13,16 +13,31 @@ class ExpandedNotchViewModel: ObservableObject {
         var id: String {
             self.rawValue
         }
-        
+
         case Home
         case Shelf
-        
+        case Teleprompter
+        case TodoReminder
+        case Timer
+        case Pomodoro
+        case Calendar
+
         var imageSystemName: String {
             switch self {
             case .Home:
                 return "house"
             case .Shelf:
                 return "folder"
+            case .Teleprompter:
+                return "text.alignleft"
+            case .TodoReminder:
+                return "checklist"
+            case .Timer:
+                return "timer"
+            case .Pomodoro:
+                return "clock.fill"
+            case .Calendar:
+                return "calendar"
             }
         }
     }
@@ -56,6 +71,90 @@ class ExpandedNotchViewModel: ObservableObject {
             name: NSNotification.Name.NowPlayingInfo,
             object: nil
         )
+
+        // Productivity view switch listeners
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(switchToTeleprompter),
+            name: NSNotification.Name("SwitchToTeleprompter"),
+            object: nil
+        )
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(switchToTodoReminder),
+            name: NSNotification.Name("SwitchToTodoReminder"),
+            object: nil
+        )
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(switchToTimer),
+            name: NSNotification.Name("SwitchToTimer"),
+            object: nil
+        )
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(switchToPomodoro),
+            name: NSNotification.Name("SwitchToPomodoro"),
+            object: nil
+        )
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(switchToCalendar),
+            name: NSNotification.Name("SwitchToCalendar"),
+            object: nil
+        )
+
+        // Teleprompter shortcut
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(toggleTeleprompter),
+            name: NSNotification.Name("ToggleTeleprompter"),
+            object: nil
+        )
+    }
+
+    @objc func switchToTeleprompter() {
+        withAnimation {
+            currentView = .Teleprompter
+        }
+    }
+
+    @objc func switchToTodoReminder() {
+        withAnimation {
+            currentView = .TodoReminder
+        }
+    }
+
+    @objc func switchToTimer() {
+        withAnimation {
+            currentView = .Timer
+        }
+    }
+
+    @objc func switchToPomodoro() {
+        withAnimation {
+            currentView = .Pomodoro
+        }
+    }
+
+    @objc func switchToCalendar() {
+        withAnimation {
+            currentView = .Calendar
+        }
+    }
+
+    @objc func toggleTeleprompter() {
+        withAnimation {
+            if currentView == .Teleprompter {
+                currentView = .Home
+            } else {
+                currentView = .Teleprompter
+            }
+        }
     }
     
     func stopListeners() {

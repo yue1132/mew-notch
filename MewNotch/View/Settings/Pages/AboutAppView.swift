@@ -26,8 +26,8 @@ struct AboutAppView: View {
                     Text("MewNotch")
                         .font(.system(size: 32, weight: .bold, design: .rounded))
                         .foregroundStyle(MewNotch.Colors.notch.color)
-                    
-                    Text("Version \(updaterViewModel.currentVersion)")
+
+                    Text("version \(updaterViewModel.currentVersion)")
                         .font(.system(size: 14, weight: .medium, design: .rounded))
                         .foregroundStyle(.secondary)
                         .padding(.horizontal, 12)
@@ -43,19 +43,19 @@ struct AboutAppView: View {
                 Button(action: {
                     updaterViewModel.checkForUpdates()
                 }) {
-                    Text(String(localized: "check_for_updates"))
+                    Text("check_for_updates")
                         .font(.system(size: 13, weight: .medium))
                         .frame(maxWidth: 160)
                 }
                 .controlSize(.large)
                 .disabled(!updaterViewModel.canCheckForUpdates)
-                
+
                 Button(action: {
                     if let url = URL(string: "https://github.com/monuk7735/mew-notch") {
                         NSWorkspace.shared.open(url)
                     }
                 }) {
-                    Text(String(localized: "view_on_github"))
+                    Text("view_on_github")
                         .font(.system(size: 13, weight: .medium))
                         .frame(maxWidth: 160)
                 }

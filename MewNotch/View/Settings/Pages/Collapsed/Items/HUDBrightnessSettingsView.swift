@@ -15,20 +15,20 @@ struct HUDBrightnessSettingsView: View {
         Form {
             Section {
                 SettingsRow(
-                    title: "Enabled",
-                    subtitle: "Shows brightness changes",
+                    title: "enabled",
+                    subtitle: "shows_brightness_changes",
                     icon: MewNotch.Assets.icBrightnessFill,
                     color: MewNotch.Colors.brightness
                 ) {
                     Toggle("", isOn: ~$viewModel.defaults.isEnabled)
                 }
             } header: {
-                Text("General")
+                Text("general")
             }
-                
+
             Section {
                 SettingsRow(
-                    title: "Style",
+                    title: "style",
                     icon: MewNotch.Assets.icPaintbrush,
                     color: MewNotch.Colors.style
                 ) {
@@ -40,10 +40,10 @@ struct HUDBrightnessSettingsView: View {
                     .labelsHidden()
                 }
                 .hide(when: !viewModel.defaults.isEnabled)
-                
+
                 SettingsRow(
-                    title: "Animated",
-                    subtitle: "Animate value changes",
+                    title: "animated",
+                    subtitle: "animate_value_changes",
                     icon: MewNotch.Assets.icVideo,
                     color: MewNotch.Colors.video
                 ) {
@@ -51,21 +51,21 @@ struct HUDBrightnessSettingsView: View {
                 }
                 .hide(when: !viewModel.defaults.isEnabled || viewModel.defaults.style != .Minimal)
             } header: {
-                Text("Appearance")
+                Text("appearance")
             }
-                
+
             Section {
                 SettingsRow(
-                    title: "Show Auto Brightness Changes",
+                    title: "show_auto_brightness_changes",
                     icon: MewNotch.Assets.icBoltBadgeAutomatic,
                     color: MewNotch.Colors.autoBrightness
                 ) {
                     Toggle("", isOn: ~$viewModel.defaults.showAutoBrightnessChanges)
                 }
                 .hide(when: !viewModel.defaults.isEnabled)
-                
+
                 SettingsRow(
-                    title: "Step Size",
+                    title: "step_size",
                     subtitle: "\(Int(viewModel.localStep * 100))%",
                     icon: MewNotch.Assets.icChartBar,
                     color: MewNotch.Colors.stepSize
@@ -78,11 +78,11 @@ struct HUDBrightnessSettingsView: View {
                 }
                 .hide(when: !viewModel.defaults.isEnabled)
             } header: {
-                Text("Details")
+                Text("details")
             }
         }
         .formStyle(.grouped)
-        .navigationTitle("Brightness")
+        .navigationTitle("brightness")
     }
 }
 
