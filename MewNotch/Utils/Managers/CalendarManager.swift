@@ -45,19 +45,18 @@ class CalendarManager: ObservableObject {
 
     func requestPermission() {
         let status = EKEventStore.authorizationStatus(for: .event)
-        print("[DEBUG] Calendar permission status: \(status.rawValue)")
+        print("[CalendarManager] Current authorization status: \(status.rawValue)")
 
         if status == .notDetermined {
-            print("[DEBUG] Requesting calendar permission...")
+            print("[CalendarManager] Requesting calendar permission...")
             if #available(macOS 14.0, *) {
                 eventStore.requestFullAccessToEvents { granted, error in
                     DispatchQueue.main.async {
                         if let error = error {
-                            print("[DEBUG] Calendar permission error: \(error.localizedDescription)")
-                        } else {
-                            print("[DEBUG] Calendar permission granted: \(granted)")
+                            print("[CalendarManager] Permission error: \(error.localizedDescription)")
                         }
 
+                        print("[CalendarManager] Permission granted: \(granted)")
                         self.hasPermission = granted
                         if granted {
                             self.fetchEvents()
@@ -69,11 +68,10 @@ class CalendarManager: ObservableObject {
                 eventStore.requestAccess(to: .event) { granted, error in
                     DispatchQueue.main.async {
                         if let error = error {
-                            print("[DEBUG] Calendar permission error: \(error.localizedDescription)")
-                        } else {
-                            print("[DEBUG] Calendar permission granted: \(granted)")
+                            print("[CalendarManager] Permission error: \(error.localizedDescription)")
                         }
 
+                        print("[CalendarManager] Permission granted: \(granted)")
                         self.hasPermission = granted
                         if granted {
                             self.fetchEvents()
@@ -83,13 +81,13 @@ class CalendarManager: ObservableObject {
                 }
             }
         } else if status == .denied || status == .restricted {
-            print("[DEBUG] Calendar permission denied/restricted, opening System Settings...")
+            print("[CalendarManager] Permission denied/restricted, opening System Settings...")
             // Open System Settings to Privacy & Security > Calendars
             if let url = URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_Calendars") {
                 NSWorkspace.shared.open(url)
             }
         } else {
-            print("[DEBUG] Calendar permission already granted")
+            print("[CalendarManager] Already has permission")
             // Already has permission
             hasPermission = true
             fetchEvents()

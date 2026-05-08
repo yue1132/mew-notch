@@ -12,7 +12,7 @@ struct PomodoroLeftHUDView: View {
     @ObservedObject var pomodoroDefaults = PomodoroDefaults.shared
 
     var body: some View {
-        if pomodoroDefaults.showInCollapsed && pomodoroDefaults.enabled && pomodoroManager.session.state == .running {
+        if pomodoroDefaults.showInCollapsed && pomodoroDefaults.enabled && pomodoroManager.session.state == .running && !notchViewModel.isExpanded {
             MinimalHUDView(
                 notchViewModel: notchViewModel,
                 variant: .left

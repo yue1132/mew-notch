@@ -12,7 +12,7 @@ struct PomodoroRightHUDView: View {
     @ObservedObject var pomodoroDefaults = PomodoroDefaults.shared
 
     var body: some View {
-        if pomodoroDefaults.showInCollapsed && pomodoroDefaults.enabled && pomodoroManager.session.state == .running {
+        if pomodoroDefaults.showInCollapsed && pomodoroDefaults.enabled && pomodoroManager.session.state == .running && !notchViewModel.isExpanded {
             Text(pomodoroManager.session.formattedTime)
                 .font(.system(size: 13, weight: .bold, design: .monospaced))
                 .foregroundColor(getSessionColor())

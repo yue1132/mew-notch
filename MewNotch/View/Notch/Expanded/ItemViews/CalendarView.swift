@@ -54,6 +54,7 @@ struct CalendarView: View {
                             .cornerRadius(8)
                     }
                     .buttonStyle(.plain)
+                    .help("Click to grant calendar access in System Settings")
                 }
                 .frame(height: 150)
             } else if viewModel.todayEvents.isEmpty {
