@@ -2,6 +2,25 @@
 
 All notable changes to MewNotch will be documented in this file.
 
+## [2.3.1] - 2026-05-08
+
+### Bug 修复
+- **日历权限问题**：添加 entitlements 权限声明，修复授权按钮无响应问题
+  - 添加 `com.apple.security.personal-information.calendars` entitlement
+  - 添加 `com.apple.security.personal-information.reminders` entitlement
+  - 改进权限请求逻辑，支持 macOS 14+ 和旧版本
+  - 权限被拒绝时自动打开系统设置隐私页面
+- **多屏幕歌曲切换**：修复副屏幕显示方块问题
+  - NowPlayingTextHUDView 根据屏幕类型选择不同形状
+  - 刘海屏使用 NotchShape，普通屏幕使用 RoundedRectangle
+  - 添加背景和材质效果
+- **番茄钟展开状态**：展开时隐藏刘海左右 HUD 显示
+  - 避免折叠和展开状态重复显示
+
+### 改进
+- 添加调试日志帮助追踪日历权限状态
+- 添加授权按钮悬停提示
+
 ## [2.3.0] - 2026-05-08
 
 ### 新增功能
