@@ -2,9 +2,11 @@
 
 ## 已完成配置
 
-✅ **GitHub Pages**: 已启用，地址 `https://yue1132.github.io/mew-notch/`
+✅ **GitHub Pages**: 已启用，使用 `sparkle-pages` 分支
+✅ **Appcast 地址**: `https://yue1132.github.io/mew-notch/sparkle/appcast.xml`
 ✅ **SPARKLE_PRIVATE_KEY**: 已自动生成并配置
 ✅ **KEYCHAIN_PASSWORD**: 已自动生成并配置
+✅ **Release Workflow**: 已更新使用 `sparkle-pages` 分支
 
 ## 需要手动配置的 Secrets
 
