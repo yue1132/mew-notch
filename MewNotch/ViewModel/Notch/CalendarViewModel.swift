@@ -41,7 +41,14 @@ class CalendarViewModel: ObservableObject {
 
     func requestPermission() {
         calendarManager.requestPermission()
-        hasPermission = calendarManager.hasPermission
+
+        // Update permission status after a delay to allow system to process
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.hasPermission = self.calendarManager.hasPermission
+            if self.hasPermission {
+                self.refreshEvents()
+            }
+        }
     }
 
     func refreshEvents() {

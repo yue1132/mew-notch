@@ -12,5 +12,9 @@
 	<true/>
 	<key>NSCameraStudioLightEnabled</key>
 	<true/>
+	<key>NSCalendarsUsageDescription</key>
+	<string>MewNotch needs calendar access to display your events and schedules on the notch.</string>
+	<key>NSRemindersUsageDescription</key>
+	<string>MewNotch needs reminders access to show your todo items and tasks on the notch.</string>
 </dict>
 </plist>

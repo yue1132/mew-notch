@@ -13,6 +13,14 @@ struct NowPlayingTextHUDView: View {
 
     @StateObject var notchDefaults = NotchDefaults.shared
 
+    private var minNotchHeight: CGFloat {
+        notchViewModel.cornerRadius.top + notchViewModel.cornerRadius.bottom + 10
+    }
+
+    private var useNotchShape: Bool {
+        notchViewModel.notchSize.height >= minNotchHeight
+    }
+
     var body: some View {
         if let title = hudModel?.name, !title.isEmpty {
             VStack(
@@ -43,17 +51,25 @@ struct NowPlayingTextHUDView: View {
                 if notchDefaults.applyGlassEffect {
                     Rectangle()
                         .fill(.ultraThinMaterial)
-                        .clipShape(NotchShape(
-                            topRadius: notchViewModel.cornerRadius.top,
-                            bottomRadius: notchViewModel.cornerRadius.bottom
-                        ))
+                        .clipShape(
+                            useNotchShape
+                            ? AnyShape(NotchShape(
+                                topRadius: notchViewModel.cornerRadius.top,
+                                bottomRadius: notchViewModel.cornerRadius.bottom
+                            ))
+                            : AnyShape(RoundedRectangle(cornerRadius: 8))
+                        )
                 } else {
                     Rectangle()
                         .fill(Color.black)
-                        .clipShape(NotchShape(
-                            topRadius: notchViewModel.cornerRadius.top,
-                            bottomRadius: notchViewModel.cornerRadius.bottom
-                        ))
+                        .clipShape(
+                            useNotchShape
+                            ? AnyShape(NotchShape(
+                                topRadius: notchViewModel.cornerRadius.top,
+                                bottomRadius: notchViewModel.cornerRadius.bottom
+                            ))
+                            : AnyShape(RoundedRectangle(cornerRadius: 8))
+                        )
                 }
             }
             .transition(
@@ -65,5 +81,18 @@ struct NowPlayingTextHUDView: View {
                 )
             )
         }
+    }
+}
+
+// Helper for type erasure
+struct AnyShape: Shape {
+    private let _path: (CGRect) -> Path
+
+    init<S: Shape>(_ shape: S) {
+        _path = { rect in shape.path(in: rect) }
+    }
+
+    func path(in rect: CGRect) -> Path {
+        _path(rect)
     }
 }

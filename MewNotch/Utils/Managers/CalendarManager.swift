@@ -17,18 +17,75 @@ class CalendarManager: ObservableObject {
     private var syncTimer: Timer?
 
     private init() {
-        requestPermission()
+        checkPermissionStatus()
+    }
+
+    private func checkPermissionStatus() {
+        let status = EKEventStore.authorizationStatus(for: .event)
+
+        switch status {
+        case .fullAccess, .writeOnly:
+            hasPermission = true
+            fetchEvents()
+            startSyncTimer()
+        case .authorized:
+            // Legacy authorization (macOS 13 and earlier)
+            hasPermission = true
+            fetchEvents()
+            startSyncTimer()
+        case .notDetermined:
+            // Will request when user clicks button
+            hasPermission = false
+        case .denied, .restricted:
+            hasPermission = false
+        @unknown default:
+            hasPermission = false
+        }
     }
 
     func requestPermission() {
-        eventStore.requestFullAccessToEvents { granted, error in
-            DispatchQueue.main.async {
-                self.hasPermission = granted
-                if granted {
-                    self.fetchEvents()
-                    self.startSyncTimer()
+        let status = EKEventStore.authorizationStatus(for: .event)
+
+        if status == .notDetermined {
+            if #available(macOS 14.0, *) {
+                eventStore.requestFullAccessToEvents { granted, error in
+                    DispatchQueue.main.async {
+                        if let error = error {
+                            print("Calendar permission error: \(error.localizedDescription)")
+                        }
+
+                        self.hasPermission = granted
+                        if granted {
+                            self.fetchEvents()
+                            self.startSyncTimer()
+                        }
+                    }
+                }
+            } else {
+                eventStore.requestAccess(to: .event) { granted, error in
+                    DispatchQueue.main.async {
+                        if let error = error {
+                            print("Calendar permission error: \(error.localizedDescription)")
+                        }
+
+                        self.hasPermission = granted
+                        if granted {
+                            self.fetchEvents()
+                            self.startSyncTimer()
+                        }
+                    }
                 }
             }
+        } else if status == .denied || status == .restricted {
+            // Open System Settings to Privacy & Security > Calendars
+            if let url = URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_Calendars") {
+                NSWorkspace.shared.open(url)
+            }
+        } else {
+            // Already has permission
+            hasPermission = true
+            fetchEvents()
+            startSyncTimer()
         }
     }
 
