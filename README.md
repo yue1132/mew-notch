@@ -1,0 +1,1 @@
+# MewNotch Sparkle Appcast
