@@ -4,7 +4,8 @@
 <h3 style="font-size: 2.5rem; letter-spacing: 1px;">MewNotch</h3>
 <p style="font-size: 1.15rem; font-weight: 500;">
     <strong>Make the Mac Notch Actually Useful!</strong><br>
-    MewNotch is a free, open-source macOS app that transforms the notch into a customizable HUD for brightness, volume, power, and more. Minimal, beautiful, and privacy-friendly.
+    MewNotch is a free, open-source macOS app that transforms the notch into a customizable HUD for brightness, volume, power, and more. Minimal, beautiful, and privacy-friendly.<br>
+    <a href="README_CN.md">中文使用说明</a> | <a href="CHANGELOG.md">Changelog</a>
   </p>
 
 <br/><br/>
