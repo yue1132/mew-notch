@@ -4,6 +4,7 @@
 //
 
 import SwiftUI
+import Combine
 
 class CalendarViewModel: ObservableObject {
 
@@ -16,14 +17,19 @@ class CalendarViewModel: ObservableObject {
     let calendarDefaults = CalendarDefaults.shared
     let calendarManager = CalendarManager.shared
 
-    private init() {
-        loadEvents()
-        listenForUpcomingEvents()
-    }
+    private var cancellables = Set<AnyCancellable>()
 
-    private func loadEvents() {
-        todayEvents = calendarManager.events
-        hasPermission = calendarManager.hasPermission
+    private init() {
+        // Subscribe to calendarManager changes
+        calendarManager.$hasPermission
+            .receive(on: DispatchQueue.main)
+            .assign(to: &$hasPermission)
+
+        calendarManager.$events
+            .receive(on: DispatchQueue.main)
+            .assign(to: &$todayEvents)
+
+        listenForUpcomingEvents()
     }
 
     private func listenForUpcomingEvents() {
@@ -41,19 +47,10 @@ class CalendarViewModel: ObservableObject {
 
     func requestPermission() {
         calendarManager.requestPermission()
-
-        // Update permission status after a delay to allow system to process
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            self.hasPermission = self.calendarManager.hasPermission
-            if self.hasPermission {
-                self.refreshEvents()
-            }
-        }
     }
 
     func refreshEvents() {
         calendarManager.fetchEvents()
-        todayEvents = calendarManager.events
     }
 
     func getEventColor(_ event: CalendarEventModel) -> Color {
