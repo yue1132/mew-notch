@@ -7,24 +7,14 @@
         <language>en</language>
         <item>
             <title>Version 2.3.1</title>
-            <pubDate>2026-05-08</pubDate>
+            <pubDate>2026-05-09</pubDate>
             <sparkle:version>231</sparkle:version>
             <sparkle:shortVersionString>2.3.1</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
             <description><![CDATA[
-                <h2>Bug 修复</h2>
-                <ul>
-                    <li>日历权限问题：添加 entitlements 权限，修复授权按钮无响应</li>
-                    <li>多屏幕歌曲切换：修复副屏幕显示方块问题</li>
-                    <li>番茄钟展开状态：展开时隐藏刘海左右 HUD 显示</li>
-                </ul>
-                <h2>改进</h2>
-                <ul>
-                    <li>添加调试日志帮助追踪日历权限状态</li>
-                    <li>添加授权按钮悬停提示</li>
-                </ul>
+                <h2>更新说明</h2>
+                <p>当前版本为开发版本，正式发布后可通过 Sparkle 自动更新。</p>
             ]]></description>
-            <enclosure url="https://github.com/yue1132/mew-notch/releases/download/v2.3.1/MewNotch-2.3.1.dmg" sparkle:edSignature="MCowBQYDK2VwAyEAb21WkQyDCAST+1EO7OA8F8tmMVx+5bbxXKPLxW+Ws+g=" length="0" type="application/octet-stream"/>
         </item>
     </channel>
 </rss>
