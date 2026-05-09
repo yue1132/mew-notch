@@ -12,9 +12,19 @@
             <sparkle:shortVersionString>2.3.1</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
             <description><![CDATA[
-                <h2>更新说明</h2>
-                <p>当前版本为开发版本，正式发布后可通过 Sparkle 自动更新。</p>
+                <h2>版本 2.3.1</h2>
+                <ul>
+                    <li>EdDSA 密钥格式修复</li>
+                    <li>GitHub 地址更新到 yue1132/mew-notch</li>
+                    <li>日历权限修复</li>
+                    <li>多屏幕歌曲切换修复</li>
+                    <li>番茄钟展开状态优化</li>
+                </ul>
             ]]></description>
+            <enclosure url="https://github.com/yue1132/mew-notch/releases/download/v2.3.1/MewNotch-2.3.1.dmg" 
+                       sparkle:edSignature="axfZFS23GNo/QaGqtxwCW/fStl8Cqknh10lSqOiy0A6SdJ4uHKzOIpfvtnhxJYVSblUdB49LdrrnZZHN+9jrAg==" 
+                       length="6425088" 
+                       type="application/octet-stream"/>
         </item>
     </channel>
 </rss>
