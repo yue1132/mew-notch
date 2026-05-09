@@ -2,19 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>SUFeedURL</key>
-	<string>https://yue1132.github.io/mew-notch/sparkle/appcast.xml</string>
-	<key>SUPublicEDKey</key>
-	<string>WUaWOaQf3GmNJjsWpAhb/sqkKQMGl1XJfWxPlhJhD34=</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>MewNotch needs calendar access to display your events and schedules on the notch.</string>
 	<key>NSCameraPortraitEffectEnabled</key>
 	<true/>
 	<key>NSCameraReactionEffectsEnabled</key>
 	<true/>
 	<key>NSCameraStudioLightEnabled</key>
 	<true/>
-	<key>NSCalendarsUsageDescription</key>
-	<string>MewNotch needs calendar access to display your events and schedules on the notch.</string>
 	<key>NSRemindersUsageDescription</key>
 	<string>MewNotch needs reminders access to show your todo items and tasks on the notch.</string>
+	<key>SUFeedURL</key>
+	<string>https://yue1132.github.io/mew-notch/sparkle/appcast.xml</string>
+	<key>SUPublicEDKey</key>
+	<string>B4o3hLlAN4ZJjCHQHxjhBy3RJmViy1SO1Z3G5lezPFo=</string>
 </dict>
 </plist>
