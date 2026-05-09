@@ -12,16 +12,16 @@
 
 <div align="center">
 
-[![GitHub License](https://img.shields.io/github/license/monuk7735/mew-notch)](LICENSE)
-  [![Downloads](https://img.shields.io/github/downloads/monuk7735/mew-notch/total.svg)](https://github.com/monuk7735/mew-notch/releases)
-  [![Issues](https://img.shields.io/github/issues/monuk7735/mew-notch.svg)](https://github.com/monuk7735/mew-notch/issues)
-  [![Pull Requests](https://img.shields.io/github/issues-pr/monuk7735/mew-notch.svg)](https://github.com/monuk7735/mew-notch/pulls)
+[![GitHub License](https://img.shields.io/github/license/yue1132/mew-notch)](LICENSE)
+  [![Downloads](https://img.shields.io/github/downloads/yue1132/mew-notch/total.svg)](https://github.com/yue1132/mew-notch/releases)
+  [![Issues](https://img.shields.io/github/issues/yue1132/mew-notch.svg)](https://github.com/yue1132/mew-notch/issues)
+  [![Pull Requests](https://img.shields.io/github/issues-pr/yue1132/mew-notch.svg)](https://github.com/yue1132/mew-notch/pulls)
   [![macOS Version](https://img.shields.io/badge/macOS-14.0%2B-blue.svg)](https://www.apple.com/macos/)
   <!-- [![Subreddit subscribers](https://img.shields.io/reddit/subreddit-subscribers/MewNotch?style=flat&label=Join%20r%2FMewNotch)](https://www.reddit.com/r/MewNotch/) -->
 
 <br/>
 
-<a href="https://github.com/monuk7735/mew-notch/releases"><img src=".github/res/macOS-Download.png" width="160" alt="Download for macOS"/></a>
+<a href="https://github.com/yue1132/mew-notch/releases"><img src=".github/res/macOS-Download.png" width="160" alt="Download for macOS"/></a>
 
 <br/>
 
@@ -70,7 +70,7 @@ brew install --cask yue1132/mew-notch
 
 ### Manual Download
 
-1. Download the latest release from [GitHub Releases](https://github.com/monuk7735/mew-notch/releases).
+1. Download the latest release from [GitHub Releases](https://github.com/yue1132/mew-notch/releases).
 2. Move the app to the Applications folder.
 3. Run the app and grant necessary permissions if prompted.
 
