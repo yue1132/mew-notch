@@ -12,9 +12,13 @@
             <sparkle:shortVersionString>2.3.1</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
             <description><![CDATA[
-                <h2>更新说明</h2>
-                <p>当前版本为开发版本，正式发布后可通过 Sparkle 自动更新。</p>
+                <h2>当前版本</h2>
+                <p>您正在使用最新版本的 MewNotch。</p>
             ]]></description>
+            <enclosure url="https://github.com/yue1132/mew-notch/releases/download/v2.3.1/MewNotch-2.3.1.dmg" 
+                       sparkle:edSignature="B4o3hLlAN4ZJjCHQHxjhBy3RJmViy1SO1Z3G5lezPFo=" 
+                       length="1" 
+                       type="application/octet-stream"/>
         </item>
     </channel>
 </rss>
