@@ -65,7 +65,7 @@
 ### Homebrew
 
 ```bash
-brew install --cask monuk7735/tap/mew-notch
+brew install --cask yue1132/mew-notch
 ```
 
 ### Manual Download
